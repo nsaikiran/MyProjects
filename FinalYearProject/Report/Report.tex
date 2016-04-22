@@ -1,0 +1,250 @@
+	
+\documentclass[12pt]{report}
+
+\usepackage{amsmath}
+\usepackage[colorlinks,linkcolor=black]{hyperref}
+\usepackage[margin=2cm]{geometry}
+%for images
+\usepackage{graphicx}
+%\usepackage{wrapfig}
+\usepackage{url}
+
+\newcommand*{\Signature}[1]{
+	\vspace{3cm}
+    \par\noindent\makebox[5cm]{\hrulefill}
+    \par\noindent\makebox[5cm][l]{#1}
+}
+
+
+\newcommand*{\plogo}{\fbox{$\mathcal{PL}$}} % Generic publisher logo
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\newcommand*{\titleGP}{\begingroup % Create the command for including the title page in the document
+\centering % Center all text
+\vspace*{\baselineskip} % White space at the top of the page
+
+
+\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} % Thick horizontal line
+\rule{\textwidth}{0.4pt}\\[\baselineskip] % Thin horizontal line
+
+{\LARGE \textbf{Entity Recognition\\ and \\[0.3\baselineskip] Relation Extraction}}\\[0.2\baselineskip] % Title
+
+\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} % Thin horizontal line
+\rule{\textwidth}{1.6pt}\\[\baselineskip] % Thick horizontal line
+
+%\scshape % Small caps
+{\Large Bachelor's Thesis\par} % Tagline(s) or further description
+ submitted in partial fullfilment of\\
+ the requirements for the degree of \\
+Bachelor of Technology\\
+in\\
+\textbf {Computer Science and Engineering}\\
+[\baselineskip]
+By\\
+{\Large SAI KIRAN NARAGAM\\N100638\par}
+\\[\baselineskip] % Tagline(s) or further description
+
+{Under the Guidance of\par}
+{\textbf {Mr. A.Udaya Kumar\\Asst. Professor\\Dept. of Computer Science and Engineering\\  RGUKT Nuzvid}\par}
+\vspace*{2\baselineskip} % Whitespace between location/year and editors
+
+
+%Edited by \\[\baselineskip]
+%{\Large JOHN SMITH \\ JANE SMITH \\ JAMES SMITH\par} % Editor list
+%{\itshape The University of California \\ Berkeley\par} % Editor affiliation
+
+\vfill % Whitespace between editor names and publisher logo
+\includegraphics[scale=.4]{rguktlogo.jpg}\\
+%\plogo \\[0.3\baselineskip] % Publisher logo
+{\scshape \textbf{Rajiv Gandhi University of Knowledge Technologies, Nuzvid.\\Krishna District,Andhra Pradesh.}} %\\[0.3\baselineskip] % Year published
+%{\large THE PUBLISHER}\par % Publisher
+
+\endgroup}
+
+%\title{Scilab Optimization Toolbox Using Symphony\\Submitted in Fulfilment of\\Summer Internship 2015 Project}
+%\author{Keyur Joshi \and Sai Kiran Naragam \and Iswarya Hariharan}
+%\date{May-July 2015}
+
+\usepackage{fancyhdr, graphicx}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[R]{\textbf{Rajiv Gandhi University of Knowledge Technologies\\
+	(A.P. Government Act 18 of 2008)\\
+	RGUKT NUZVID, Krishna District - 521202}\\}
+\fancyhead[L]{
+\includegraphics[width=1.5cm]{rguktlogo.jpg}
+}
+
+\begin{document}
+
+\pagestyle{empty} % Removes page numbers
+
+\titleGP % This command includes the title page
+
+% title page
+%\maketitle
+\cleardoublepage
+\pagenumbering{roman}
+\setcounter{page}{1} %reset the page counter
+%acknowledgements
+
+%\chapter*{Project Approval}
+\newgeometry{left=3cm,right=3cm,top=5cm}
+
+
+\section*{}
+%\begin{center}\textbf{Rajiv Gandhi University of Knowledge Technologies\\(A.P. Government Act 18 of 2008)\\RGUKT-NUZVID, Krishna Dist. - 521202\\}\end{center}
+
+\thispagestyle{fancy}
+\begin{center}\makebox[15cm]{\hrulefill}\end{center}
+\vspace{1cm}
+\begin{center}
+\subsection*{CERTIFICATE OF COMPLETION\\\makebox[10cm]{\hrulefill}}
+
+\end{center}
+\par This is to certify that the work entitled, \textbf{ Entity  Recognition and Relation Extraction} 
+is the bona fied work of \textbf{NARAGAM SAI KIRAN}, ID No: \textbf{N100638}, carried out under my guidance and supervision,
+for the partial fulfillment of the requirements for the award of the degree of Bachelor of Technology in Computer Science and Engineering. 
+
+\Signature{Mr. Ambati Udaya Kumar,}\\Assistant Professor,\\Dept.of CSE.
+
+\pagebreak
+\newgeometry{left=3cm,right=3cm,top=5cm}
+\section*{}
+\thispagestyle{fancy}
+\begin{center}\makebox[15cm]{\hrulefill}\end{center}
+\vspace{1cm}
+\begin{center}
+\subsection*{CERTIFICATE OF EXAMINATION\\\makebox[10cm]{\hrulefill}}
+
+\end{center}
+\par This is to certify that the work entitled, \textbf{"Entity Recognition and Relation Extraction"}
+is the bonafide work of \textbf{NARAGAM SAI KIRAN}, ID No: \textbf{N100638} and here by accord our approval
+ of it as a study carried out and presented in a manner required for its
+  acceptance in the partial fulfillment of the requirement for 
+  the award of the degree of Bachelor of Technology for which it has been submitted.
+   This approval does not necessarily endorse or accept every statement made, opinion expressed or conclusion drawn, as a recorded in this thesis.
+    It only signifies the acceptance of this thesis for the purpose for which it has been submitted.
+
+\Signature{Mr. Ambati Udaya Kumar,}\\Assistant Professor,\\Dept.of CSE.
+\Signature{Mr. Amit Patel,}\\Lecturer,\\Dept.of CSE.
+\pagebreak
+
+\newgeometry{left=3cm,right=3cm,top=5cm}
+\section*{}
+\thispagestyle{fancy}
+\begin{center}\makebox[15cm]{\hrulefill}\end{center}
+\vspace{1cm}
+\begin{center}
+\subsection*{DECLARATION\\\makebox[5cm]{\hrulefill}}
+
+\end{center}
+\par I \textbf{NARAGAM SAI KIRAN}, with ID No:\textbf{N100638} hereby declare that t
+he project report entitle \textbf{Entity Recognition and Relation Extraction} done by me
+ under the guidance of \textbf{Mr. Ambati Udaya Kumar,M.Tech} is submitted for the partial
+  fulfillment of the requirements for the award of the degree of Bachelor of Technology
+   in Computer Science and Engineering during the academic session August 2015 – April 2016 at RGUKT – Nuzvid.
+
+\par I also declare that this project is a result of my own effort and has not been copied or imitated from any source.
+ Citations from any websites are mentioned in the references.
+\par The results embodied in this project report have not been submitted to any other university or institute for the award of any degree or diploma.
+
+\Signature{N. SAI KIRAN,}\\N100638.\\
+\begin{flushright}
+Date : \makebox[3cm]{\hrulefill}\\
+Palce: \makebox[3cm]{\hrulefill}\\
+\end{flushright}
+\pagebreak
+
+\newgeometry{margin=2cm}
+\chapter*{Acknowledgements}
+\par I would like to thank my parents,guide and friends
+\chapter*{Abstract}
+
+\par Abstract goes here.
+
+%table of contents
+\pagestyle{empty} %get rid of header/footer for toc page
+\tableofcontents %put toc in
+\cleardoublepage %start new page
+\pagestyle{plain} % put headers/footers back on
+\pagenumbering{arabic}
+\setcounter{page}{1} %reset the page counter
+
+\chapter{Introduction}
+When we have large amount of (previous)data we might want to extract some useful information
+ out of it, and use it as summary. or we can predict the future events by learning from the
+ data at hand.\\
+Most of the time data that is available for use in un-structured form like Natural Language Text
+rather than structured form like tables. It is easy to extract required information or 
+answer a question if the data we are working on has structured form.
+
+But it is difficult to handle unstructured data. Because Natural Language Processing(NLP)
+that works on unstructured data is still developing.
+
+The amount of natural language text that is available in electronic 
+form is truly staggering, and is increasing every day. 
+However, 
+the complexity of natural language can make it very difficult to access the information in that text\cite{BookIE}.\\
+
+\par If we instead focus our efforts on a limited set of questions or 
+"entity relations," such as "where are different facilities located,
+" or "who is employed by what company," we can make significant progress.\cite{BookIE}
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=.7]{nerastagging2.png}
+\caption{NER as Tagging}
+\label{NERasT}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[height=2in,width=3in]{ie.png}
+\caption{IE system}
+\label{IE}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[height=1in,width=3in]{rel.png}
+\caption{IE system}
+\label{IE}
+\end{figure}
+
+
+\chapter{Entity Recognition}
+\par Here goes ER
+
+\chapter{Relation Extraction}
+\par Here goes end\par Hello
+
+\begin{thebibliography}{99}
+\bibitem{BookIE}
+\textbf{Extracting Information from Text}\\
+\url{http://www.nltk.org/book/ch07.html}
+
+\bibitem{howtoRE}
+\textbf{Information Extraction in NLTK}\\
+\url{http://www.nltk.org/howto/relextract.html}
+
+\bibitem{Videos}
+Prof.Yaser Abu-Mostafa,California Institute of Technology\\
+\textbf{Learning from Data}(Online Course)
+
+\bibitem{re}
+\textbf{Regular Expression in Python}\\
+\url{https://docs.python.org/2/howto/regex.html#regex-howto}
+
+\bibitem{h}
+Prof. Michael Collins,Columbia University\\
+\textbf{Tagging Problems, and Hidden Markov Models}\\
+\url{http://www.cs.columbia.edu/~mcollins/hmms-spring2013.pdf}
+\bibitem{d}
+IPOPT Documentation\\
+\texttt{http://www.coinor.org/Ipopt/documentation/node23.html}
+
+\end{thebibliography}
+\end{document}
+% bTEzX3BoeXNpY3M6cGFyaW1p
