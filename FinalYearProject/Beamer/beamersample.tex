@@ -1,0 +1,167 @@
+\documentclass{beamer} % "Beamer" is a word used in Germany to mean video projector. 
+
+\usetheme{Berkeley} % Search online for beamer themes to find your favorite or use the Berkeley theme as in this file.
+
+\usepackage{color} % It may be necessary to set PCTeX or whatever program you are using to output a .pdf instead of a .dvi file in order to see color on your screen.
+\usepackage{graphicx} % This package is needed if you wish to include external image files.
+
+\theoremstyle{definition} % See Lesson Three of the LaTeX Manual for more on this kind of "proclamation."
+\newtheorem*{dfn}{A Reasonable Definition}               
+
+\title[ER\&RE]{Entity Recognition and Relation Extraction}
+
+\author[Sai Kiran Naragam]{Sai Kiran Naragam\\ N100638}
+%\institute{Rajiv Gandhi University of Knowledge Technologies\\ Nuzvid}
+\date[\today]{Under the Guidance of\\\textbf{Mr. Uday Kumar Ambati\\Asst. Professor}\\ \textbf{Dept. of Comp. Sci. \& Engg.\\RGUKT Nuzvid}}
+%\date{January 6, 2012} 
+% Remove the % from the previous line and change the date if you want a particular date to be displayed; otherwise, today's date is displayed by default.
+
+\AtBeginSection[]  % The commands within the following {} will be executed at the start of each section.
+{
+\begin{frame} % Within each "frame" there will be one or more "slides."  
+\frametitle{Presentation Outline} % This is the title of the outline.
+\tableofcontents[currentsection]  % This will display the table of contents and highlight the current section.
+\end{frame}
+} % Do not include the preceding set of commands if you prefer not to have a recurring outline displayed during your presentation.
+
+\begin{document}
+
+\begin{frame} 
+\titlepage
+\end{frame}
+
+\section{Introduction} % Since this is the start of a new section, our recurring outline will appear here.
+
+\begin{frame} 
+\frametitle{Aim}
+To recognise entities(Named Entites) in the given text and extracting relationships.
+\includegraphics[width=7cm, height=5cm]{ie.png}
+\textit{www.nltk.org/book/}
+\end{frame}
+
+\section[ER]{Entity Recognition}
+\begin{frame}
+\frametitle{Intro}
+\includegraphics[width=10cm, height=5cm]{ner.png}
+\\
+Image: \textit{http://www.europeana-newspapers.eu/named-entity-recognition-for-digitised-newspapers/}
+\end{frame}
+
+\begin{frame}
+\frametitle{Entity Recognition}
+We can achieve this in two ways:
+\begin{itemize}
+\pause \item \texttt{Procedure 1} % Each \pause creates a new slide within the frame.
+\begin{itemize}
+\item PoS Taggins
+\item Named Entity Chunking
+\end{itemize}
+\pause \item \texttt{Procedure 2}
+\begin{itemize}
+\item Named Entity Extraction as Tagging
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection[Tagging]{Parts of Speech Tagging}
+\begin{frame}
+\frametitle{Intro. to PoS Tagging}
+\includegraphics[width=10cm, height=5cm]{postag.png}
+\end{frame}
+\begin{frame}
+\frametitle{PoS Tagging Contd..}
+Here we used NLTK's recommended PoS Tagger.It uses the Penn Treebank tagset.
+\end{frame}
+
+\subsection[Chunking]{Named Entity Chunking}
+\begin{frame}
+\frametitle{Intro to Named Entity Chunking}
+\includegraphics[width=9cm, height=3cm]{chunk1.png}
+\\
+\textit{www.nltk.org/book/}
+\end{frame}
+\begin{frame}
+\frametitle{Named Entity Chunking Contd...}
+\begin{itemize}
+\item We can use \textit{hand-written rules(\textbf{Ex: regular expressions}} to chunk tags in to a named-entity. Or we use a 
+trained chunker.
+\item In the case we used NLTK's recommended Chunker. Which is trained on ACE( Automatic
+ Context Extraction).
+ \end{itemize}
+\end{frame}
+
+\subsection[ER as Tagging]{Entity Extraction itself as Tagging}
+\begin{frame}
+\frametitle{Entity Extraction itself as Tagging}
+Example: Bikel et. al 1999 (Named Entity Recognition)
+\includegraphics[width=9cm, height=5cm]{nerastagging.png}\\
+\end{frame}
+\begin{frame}
+\frametitle{Entity Extraction as Tagging Contd..}
+Bikel et al. used Hidden Markov Models to tag.
+\includegraphics[width=9cm, height=5cm]{nerastagging2.png}\\
+\textit{http://curtis.ml.cmu.edu/w/courses/index.php/}
+\end{frame}
+
+\section[RE]{Relation Extraction}
+\subsection{Introduction}
+\begin{frame}
+\frametitle{Intro to Relation Extraction}
+\textit{What kind of relationship is there between entities}
+\includegraphics[width=7cm, height=3cm]{rel.png}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\frametitle{Intro to Relation Extraction}
+\item Here we are using \textit{hand-written patterns(\textbf{regular expressions})} to extract the relationship.
+\item We may use the so-called \textit{learning technique}. But we may need huge hand-labeled
+ training data(in case of supervised) or very advanced techniques(in case of unsupervised).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{How ?}
+\begin{itemize}
+\item Form relation-tuples of the form \textit{(subj, filler, obj)}
+\item \textit{subj,obj} are Entities and \textit{filler} is text.
+\item Apply rules on \textit{filler} to extract relation.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Applications of Relation Extraction}
+Concentrated application is
+\textbf{Question Answering}\\
+\textit{where are different facilities located}\\
+\textit{who is employed by what company}.\\
+\end{frame}
+
+\section[Summary]{Summary of Work}
+\begin{frame}
+\frametitle{Summary of Work}
+\begin{itemize}
+\item Technologies: Python,NLTK.\\
+\item Tested: BBC business text.\\
+\item Worked only with few class PERSON,LOCATION,ORGANIZATION,GPE.\\
+\item Looking forward to work with 7 classes.
+\item Started workin with \textbf{Stanford Named Entity Recognizer}.
+\item Theoritical study of HMMTagger,Maximum Entropy Markov Model Tagger(\textit{not completed}) and Perceptron Tagger(\textit{not completed}).
+\item Generative vs. discriminative learning models.
+\end{itemize}
+\end{frame}
+
+\section[Future Work]{Future Implementations}
+\begin{frame}
+\frametitle{Future Implementations}
+\begin{itemize}
+\item To do everything done so far for Indian languages.
+\item Tried but left the work due to some difficulties observed.
+\end{itemize}
+\end{frame}
+
+\section[]{}
+\begin{frame}
+\textbf{Thank You}
+\end{frame}
+\end{document}
