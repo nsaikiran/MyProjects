@@ -192,6 +192,18 @@ the complexity of natural language can make it very difficult to access the info
 \par If we instead focus our efforts on a limited set of questions or 
 "entity relations," such as "where are different facilities located,
 " or "who is employed by what company," we can make significant progress.\cite{BookIE}
+
+
+\begin{figure}[htp]
+\centering
+\includegraphics[height=2in,width=3in]{ie.png}
+\caption{Simple Pipeline Architecture for an Information Extraction System\cite{BookIE}}
+\label{IE}
+\end{figure}
+
+\chapter{Entity Recognition}
+\section{Entity Recognition as Tagging}
+\par Bikel et. al
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=.7]{nerastagging2.png}
@@ -199,13 +211,39 @@ the complexity of natural language can make it very difficult to access the info
 \label{NERasT}
 \end{figure}
 
+\section{Entity Recognition with chunking}
+\par Here goes ER
+\subsection{PoS Tagging}
+POS
+\subsection{Named Entity Chunking}
+\begin{figure}[]
+\centering
+\includegraphics[scale=.2]{chunk1.png}
+\caption{Chunking}
+\label{Chunk}
+\end{figure}
+\chapter{Relation Extraction}
+\par Relation Extraction is an important component of Information Extraction.
+\par Using the Named Entities and clever patterns we extract relation. These rules can 
+get high precision as they are specific.
+\par We will focus on the simpler task of extracting \textbf{relation triples}. Relation
+triples are of the form \textit{(Named Entity,Relation,Named Entity)}.
+\par We will use \textit{relextract} module of \textit{Python} for this.
+\par Rule based relation extraction
+We can create new structured knowledge bases by relation extraction
+Questions that are asked in natural language can be converted in to a query to a structured
+knowledge base.\\
+\par So, Here is a question for us. \textit{Which relations should we extract ?} It depends
+on how many classes of entities we are able to extract in \textit{Entity Recognition}.
+
+But, a set of relations  comes from the \textit{Automated Content Extraction (ACE)} task.
 \begin{figure}[htp]
 \centering
-\includegraphics[height=2in,width=3in]{ie.png}
-\caption{IE system}
-\label{IE}
+\includegraphics[height=3in,width=5.2in]{ACE.jpg}
+\caption{ACE Relation set}
+\label{ACE}
 \end{figure}
-
+\ref{ACE}\footnote{Slide from: \url{https://class.coursera.org/nlp/lecture/138}}
 \begin{figure}[htp]
 \centering
 \includegraphics[height=1in,width=3in]{rel.png}
@@ -213,12 +251,31 @@ the complexity of natural language can make it very difficult to access the info
 \label{IE}
 \end{figure}
 
+IE System \ref{IE}\footnote{https://class.coursera.org/nlp/lecture/139}
 
-\chapter{Entity Recognition}
-\par Here goes ER
+\section{How to extract relations ?}
+We can use:
+\begin{itemize}
+\item Hand-written patterns
+\item Supervised,semi-supervised and unsupervised machine learning
+\end{itemize}
+We are using \textit{only} Hand-written patterns to extract relations as it is simplest
+way. Here we are trying to extract relations between \textit{specific entities}. 
+\subsection{Positives of Hand-written rules}
+\begin{itemize}
+\item String patterns tends to be  high-precision.
+\item Works well for specific domains/entities.
+\end{itemize}
 
-\chapter{Relation Extraction}
-\par Here goes end\par Hello
+\subsection{Negatives of Handiwritten rules}
+\begin{itemize}
+\item It's difficult to think of all possible patterns.
+\item We don't want to fix the entities for relation extraction.
+\end{itemize}
+
+\chapter{Results and Observations}
+\chapter{Conclusion and Future Work}
+
 
 \begin{thebibliography}{99}
 \bibitem{BookIE}
@@ -241,10 +298,11 @@ Prof.Yaser Abu-Mostafa,California Institute of Technology\\
 Prof. Michael Collins,Columbia University\\
 \textbf{Tagging Problems, and Hidden Markov Models}\\
 \url{http://www.cs.columbia.edu/~mcollins/hmms-spring2013.pdf}
-\bibitem{d}
-IPOPT Documentation\\
-\texttt{http://www.coinor.org/Ipopt/documentation/node23.html}
 
+\bibitem{SNLP}
+\textbf{Dan Jurafsky,Christopher Manning}\\
+Week 4 - Relation Extraction of \textbf{Natural Language Processing}(coursera lectures),\\
+\url{https://class.coursera.org/nlp/lecture}
 \end{thebibliography}
 \end{document}
 % bTEzX3BoeXNpY3M6cGFyaW1p
