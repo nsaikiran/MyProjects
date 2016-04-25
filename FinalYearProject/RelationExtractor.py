@@ -5,7 +5,6 @@ from nltk.sem import relextract
 from nltk.corpus import ieer
 
 def extract_entities(text):
-	print "called"
 	tree=nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize( nltk.sent_tokenize(text)[24] )))
 	pairs=relextract.tree2semi_rel(tree)
 	for sent,tree in pairs:	
@@ -40,62 +39,43 @@ def createDoc(text):#To create a DOCUMENT by combining all the chunked sentences
 		print (r['filler'])
 		print (r['objclass'],':', r['objtext'])
 
-	
-
-	"""def improve(reldicts):
-		for dicts in reldicts:
-			print len(nltk.sent_tokenize(dicts['filler']))
-	improve(reldicts)
-	"""
-	#print pairs[0]
-	#print pairs[1]
-	#print pairs[2]
-	#for sent,tree in pairs[0]:
-	#	print sent,tree 
-		#print('("...%s", %s)' % (" ".join(sent[0][-5:]),tree))
-	#tree=nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize( nltk.sent_tokenize(text)[24] )))
-	#l=[chunk for chunk in tree]
-	#print "%s"%docTree
-	"""	
-	print tree.label()
-	print tree.leaves()
-	print tree"""
-
-		# The ne_chunk examines the morphology ofa word. Hence in the above sent.lower() [normalized form] wno't work
-			#print type(chunk)
-			#if isinstance(chunk,nltk.tree.Tree):
-			#	print chunk.label(),chunk.leaves()
-data="testcorpuspol.txt"#"testcorpusent.txt"#"testcorpus.txt"
 
 def extractRel(reldicts,subjclass,objclass,window,pattern):
-
+	format="[%s: %r] %s [%s: %r]"
 	relfilter = lambda x: (x['subjclass'] == subjclass and
         	                 len(x['filler'].split()) <= window and
     	                  pattern.match(x['filler']) and
                            x['objclass'] == objclass)
-	for rel in list(filter(relfilter, reldicts)):
-		print(relextract.rtuple(rel))
+	for reldict in list(filter(relfilter, reldicts)):
+		#print(relextract.rtuple(rel))
+		print format % (reldict['subjclass'],reldict['subjtext'],reldict['untagged_filler'],reldict['objclass'],reldict['objtext'])
 	
+
+
+
+
+data = "testdatapolitics.txt"
+#data = "testdataentertainment.txt"
+#data = "testdatabusiness.txt"
+
 dicts=createDoc(codecs.open(data,"r","utf-8").read())
-# Match pattern in filler
 
 import RelationRules as rr
-ROLES = re.compile(rr.roles, re.VERBOSE)
-IN = re.compile(r'.*\bin\b(?!\b.+ing\b)')
-FROM=re.compile(r'.*\bfrom\b.*')
-pattern=ROLES
-subjclass='PERSON'#'ORGANIZATION'
-objclass='ORGANIZATION'#'GPE'
-window=5
-print "====== Relations of ROLES ===="
+window=5 # allowable words in filler
+
+ROLES	= re.compile(rr.roles,re.VERBOSE|re.IGNORECASE)
+RELATION= re.compile(rr.relation,re.VERBOSE|re.IGNORECASE)
+PERSONPLACE = re.compile(rr.personplace,re.VERBOSE|re.IGNORECASE)
+DISTANCE= re.compile(rr.distance,re.VERBOSE|re.IGNORECASE)
+
+print "====== Relations of PERSON and ORGANIZATION ===="
 extractRel(dicts,'PERSON','ORGANIZATION',window,ROLES)
-print "====== Relations of IN ======="
-extractRel(dicts,'ORGANIZATION','GPE',window,IN)
-print "====== From Relation =============="
-extractRel(dicts,'PERSON','ORGANIZATION',5,FROM)
-
-
-RELATION=re.compile(rr.relation,re.VERBOSE)
-print "=========== RELATION ============"
+print "====== Relations of PERSON and PERSON	======="
 extractRel(dicts,'PERSON','PERSON',window,RELATION)
-
+print "====== Relations of PERSON and LOCATION	======="
+extractRel(dicts,'PERSON','LOCATION',window,PERSONPLACE)
+extractRel(dicts,'PERSON','GPE',window,PERSONPLACE)
+print "====== Relations related to DISTANCE	======="
+extractRel(dicts,'ORGANIZATION','GPE',window,DISTANCE)
+extractRel(dicts,'LOCATION','LOCATION',window,DISTANCE)
+extractRel(dicts,'GPE','GPE',window,DISTANCE)

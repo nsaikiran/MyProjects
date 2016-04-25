@@ -2,7 +2,7 @@
 # To get all the other token including matched one use .*
 
 #PER ORG
-roles=r"""((founder|
+roles=r"""(.*(founder|
 	analyst|
 	actor|
 	artist|
@@ -48,9 +48,9 @@ roles=r"""((founder|
 	Spokes(wo)?man))"""
 
 # PER PER
-relation=r"""(('s\s)?(wife|	#
+relation=r"""(.*('s\s)?(wife|	#
 	husband|
-	on|		# can use \bson\b
+	son|		# can use \bson\b
 	daughter|
 	brother|
 	sister|
@@ -68,7 +68,7 @@ relation=r"""(('s\s)?(wife|	#
 # PER GPE
 # PER LOC
 personplace=r"""
-	((from|		# can use .* to match whole character before the word
+	(.*(from|		# can use .* to match whole character before the word
 	live(s)?|
 	resident|
 	born|
@@ -79,7 +79,7 @@ personplace=r"""
 # GPE GPE
 # LOC LOC
 # ORG GPE
-distance=r"""(
+distance=r"""(.*(
 	\bnear\b
 	\bin\b
-	)"""
+	))"""

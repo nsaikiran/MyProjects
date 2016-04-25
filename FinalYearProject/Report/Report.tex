@@ -30,7 +30,7 @@
 \rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} % Thick horizontal line
 \rule{\textwidth}{0.4pt}\\[\baselineskip] % Thin horizontal line
 
-{\LARGE \textbf{Entity Recognition\\ and \\[0.3\baselineskip] Relation Extraction}}\\[0.2\baselineskip] % Title
+{\LARGE \textbf{Named Entity Recognition\\ and \\[0.3\baselineskip] Relation Extraction}}\\[0.2\baselineskip] % Title
 
 \rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} % Thin horizontal line
 \rule{\textwidth}{1.6pt}\\[\baselineskip] % Thick horizontal line
@@ -120,7 +120,7 @@ for the partial fulfillment of the requirements for the award of the degree of B
 \subsection*{CERTIFICATE OF EXAMINATION\\\makebox[10cm]{\hrulefill}}
 
 \end{center}
-\par This is to certify that the work entitled, \textbf{"Entity Recognition and Relation Extraction"}
+\par This is to certify that the work entitled, \textbf{"Named Entity Recognition and Relation Extraction"}
 is the bonafide work of \textbf{NARAGAM SAI KIRAN}, ID No: \textbf{N100638} and here by accord our approval
  of it as a study carried out and presented in a manner required for its
   acceptance in the partial fulfillment of the requirement for 
@@ -142,7 +142,7 @@ is the bonafide work of \textbf{NARAGAM SAI KIRAN}, ID No: \textbf{N100638} and 
 
 \end{center}
 \par I \textbf{NARAGAM SAI KIRAN}, with ID No:\textbf{N100638} hereby declare that t
-he project report entitle \textbf{Entity Recognition and Relation Extraction} done by me
+he project report entitle \textbf{Named Entity Recognition and Relation Extraction} done by me
  under the guidance of \textbf{Mr. Ambati Udaya Kumar,M.Tech} is submitted for the partial
   fulfillment of the requirements for the award of the degree of Bachelor of Technology
    in Computer Science and Engineering during the academic session August 2015 – April 2016 at RGUKT – Nuzvid.
@@ -193,7 +193,11 @@ the complexity of natural language can make it very difficult to access the info
 "entity relations," such as "where are different facilities located,
 " or "who is employed by what company," we can make significant progress.\cite{BookIE}
 
-
+\par Here we are trying to understand the given text and find the limited relevant parts of it.
+ This is what the researchers called as \textbf{Information Extraction}.
+\section{Aim}
+\par Identifying named entities and working out the relationship between them using hand-written
+ rules with regular expressions. For most of the questions often the answers be named entities.
 \begin{figure}[htp]
 \centering
 \includegraphics[height=2in,width=3in]{ie.png}
@@ -201,27 +205,77 @@ the complexity of natural language can make it very difficult to access the info
 \label{IE}
 \end{figure}
 
-\chapter{Entity Recognition}
-\section{Entity Recognition as Tagging}
-\par Bikel et. al
+\chapter{Named Entity Recognition}
+\section{Introduction}
+\par \textbf{Named Entity Recognition} is an important sub task of \textit{Information Extraction} 
+,in this we are going to find and classify (into different classes like PERSON,ORGANIZATION and LOCATION etc.).
+ concrete names of people,organizations,locations and quantities etc.
+\par We are interested in \textit{Named} Entity Recognition. Because not all entities are 
+attached with a name (specific).
+\par For the literature survey on named entity recognition, please refer\cite{Rahul}.
+\section{Named Entity Recognition as Tagging}
+\par \textit{Bikel et. al}\footnote{\url{http://ilk.uvt.nl/~toine/research/bikel-1999.pdf}} mapped the  Named the Entity Recognition problem very directly into tagging problem. Where
+where they considered all the named entity classes and an extra NOT-A-NAME tag. 
+
 \begin{figure}[htp]
 \centering
-\includegraphics[scale=.7]{nerastagging2.png}
-\caption{NER as Tagging}
+\includegraphics[height=3in,width=5in]{bikel.png}
+\caption{Stage Diagram of NER as Tagging by Bikel et. al}
 \label{NERasT}
 \end{figure}
 
-\section{Entity Recognition with chunking}
-\par Here goes ER
-\subsection{PoS Tagging}
-POS
-\subsection{Named Entity Chunking}
-\begin{figure}[]
+They used hand-tagged corpus to train their model(Hidden Markov Model\cite{hmm}) and some
+ word-features to deal with low-frequency words. 
+ 
+\section{Named Entity Recognition with PoS tagging \& Chunking}
+\par Now we have lot of parts of speech tagged corpora (especially for english) as we can
+ use it for machine translataion and many other applications. Here we are going to use 
+ PoS tagging for NER. \par After having natural language senetences with their underlying \textit{
+ tag sequences} we group the tags into named entities.
+
+\subsection{PoS Tagging\footnote{For more details:\\Tagging Problems, and Hidden Markov Models of \cite{mc} and POS Tagging of \cite{SNLP}}}
+\par Parts of speech tagging problem is to determine the parts of speech of a particular
+instance of word. The intuition of PoS tagging is presented in below image \ref{pos}\footnote{Slide from
+ The Tagging Problem of \cite{mc}}.
+\par Tags may vary depending on corpus we are dealing with. For example, tag set of The Brown Corpus\footnote{\url{https://www.comp.leeds.ac.uk/ccalas/tagsets/brown.html}} and P.O.S tag set of The Penn Treebank\footnote{\url{https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html}}
+To check in NLTK, execute and \textit{nltk.help.brown\_tagset()},\textit{nltk.help.upenn\_tagset()} respectively for the brown corpus tagset and Penn Treebank tagset.
+\par If we want to write a tagger then we need \textit{large amount of labled corpus}\footnote{For more insights of 
+Machine Learning techniques I feel, \cite{Videos} is a good source}. Which in this case
+ are Penn Tree Bank tagged corpus or Brown corpus.
+\par For more insights on writing a parts of speech tagger in NLTK, please refer\cite{tag}
+\par For theoritical understanding of a tagger. We learned how a Hidden Markov Model tagger\cite{hmm}
+ works. Here for this problem we used NLTK's default implementation of tagger(\textit{
+ nltk.tag()}) as it is recommeneded for better results.
+
+\begin{figure}[htp]
 \centering
-\includegraphics[scale=.2]{chunk1.png}
+\includegraphics[height=2.5in,width=5in]{postag.png}
+\caption{Parts-of-Speech Tagging}
+\label{pos}
+\end{figure}
+
+\subsection{Named Entity Chunking\footnote{For more details: refer \cite{BookIE}}}
+\par After tagging comes the named entity chunking. We'll group the pos tags into named
+ entities (if possible intuit its class). Chunker is also a tagger that is trained on some
+  corpus.
+One of the most useful sources of information for NP-chunking(Noun Phrase-chunking) is part-of-speech tags.
+This is one of the motivations for performing part-of-speech tagging in our information extraction system
+\par Here for this problem we used NLTK's default implementation of named entity chunker
+(\textit{nltk.ne\_chunk()}) as it is recommended for better results. It can be used for multi-
+class(PERSON, LOCATION, ORGANIZATION and GPE) or binary class(NP).
+
+\begin{figure}[htp]
+\centering
+\includegraphics[height=1in,width=5in]{chunk1.png}
 \caption{Chunking}
 \label{Chunk}
 \end{figure}
+
+\par For more insights on develping a chunker, please refer \cite{BookIE}. Here it described
+ how to create a basic chunker and a chunker that can learn from data for good performance.
+\par Morphology of words to identify Noun Phrases. And to identify the class of Noun Phrase(Named Entity) the chunker will use context of the Noun Phrase.
+There are many formats to represent Named Entities, those are IB(Every token is \textbf{I}n the chunk or \textbf{B}egining of the chunk), IOB(Every token is \textbf{I}n the chunk or \textbf{O}ut of the chunk or \textbf{B}egining of the Chunk),tree representation etc.
+
 \chapter{Relation Extraction}
 \par Relation Extraction is an important component of Information Extraction.
 \par Using the Named Entities and clever patterns we extract relation. These rules can 
@@ -234,7 +288,7 @@ We can create new structured knowledge bases by relation extraction
 Questions that are asked in natural language can be converted in to a query to a structured
 knowledge base.\\
 \par So, Here is a question for us. \textit{Which relations should we extract ?} It depends
-on how many classes of entities we are able to extract in \textit{Entity Recognition}.
+on how many classes of entities we are able to extract in \textit{Named Entity Recognition}.
 
 But, a set of relations  comes from the \textit{Automated Content Extraction (ACE)} task.
 \begin{figure}[htp]
@@ -247,11 +301,11 @@ But, a set of relations  comes from the \textit{Automated Content Extraction (AC
 \begin{figure}[htp]
 \centering
 \includegraphics[height=1in,width=3in]{rel.png}
-\caption{IE system}
+\caption{Relation between PERSON and ORGANIZATION named entity classes}
 \label{IE}
 \end{figure}
 
-IE System \ref{IE}\footnote{https://class.coursera.org/nlp/lecture/139}
+Figure \ref{IE}\footnote{\url{https://class.coursera.org/nlp/lecture/139}} gives basic intuition of relation between entities.
 
 \section{How to extract relations ?}
 We can use:
@@ -260,7 +314,41 @@ We can use:
 \item Supervised,semi-supervised and unsupervised machine learning
 \end{itemize}
 We are using \textit{only} Hand-written patterns to extract relations as it is simplest
-way. Here we are trying to extract relations between \textit{specific entities}. 
+way. Here we are trying to extract relations between \textit{specific entities}.
+\par We used \textbf{regular expressions } \cite{re} in Python to write patterns to extract relations.
+
+\subsection{Procedure followed}
+
+\begin{itemize}
+\item First identify the named entities (POS tagging then Chunking).
+\item Then we group a Noun phrase with its left context.\\ Now we'll have document as list of tuples.\\
+Ex: \texttt{[(String1,Named Entity1), (String2,Named Entity2) , (String3,Named Entity3) , ... ]}\\
+Here \texttt{Named Entity1,Named Entity2,Named Entity3} are tree representations of Noun Phrase.
+Now we take two consecutive tuples and add them to create \textit{semi}relation dictionaries.\\
+That dictionary contains \textbf{key},\textbf{value} as described in table \ref{table}
+	\begin{table}[h]
+	\centering
+    \begin{tabular}{ | p{5cm} | p{5cm} |}
+    \hline
+    \textbf{KEY} & \textbf{VALUE} \\\hline
+    \texttt{filler}(text between two Named Entities) &  \texttt{String2} which is leftcontext of Named Entity2\\ \hline
+    \texttt{lcon}(left context of the relation) & \texttt{String1} which is leftcontext of Named Entity1.  \\\hline
+    \texttt{objclass}(Class of object of the relation) & \texttt{Root of the Named Entity2 tree structure}\\\hline
+    \texttt{objsym}(Normalized text of object with no white space & \texttt{Normalized object with underscore in palce of space.}\\\hline
+    \texttt{objtext} & \texttt{objtext}\\\hline
+    \texttt{rcon}(right context of the relation) & \texttt{String3}, which is right context of the Named Entity 2\\\hline
+    \texttt{subjclass}(Class of subject of the relation) & \texttt{Root of the Named Entity1 tree structure.}\\\hline
+    \texttt{subjsym}(Normalized text of suject with no white space) & \texttt{Normalized subject with underscore in palce of space.}\\\hline
+    \texttt{subjtext} & \texttt{subject text}\\\hline
+    \texttt{untagged\_filler} & \texttt{filler with no POS tags}\\\hline
+    \end{tabular}
+    \caption{Explanation of Key,Value pairs of \texttt{semi}relation dictionary}
+    \label{table}
+    \end{table}
+\item Apply hand-written rules on filler,right context and left context to extract relations
+\end{itemize}
+\par For more information on relation extraction, please refer \cite{BookIE} for more information.
+The rules we wrote for this project can be found here\footnote{\url{https://github.com/saikiran638/MyProjects/blob/master/FinalYearProject/RelationRules.py}}
 \subsection{Positives of Hand-written rules}
 \begin{itemize}
 \item String patterns tends to be  high-precision.
@@ -274,13 +362,40 @@ way. Here we are trying to extract relations between \textit{specific entities}.
 \end{itemize}
 
 \chapter{Results and Observations}
-\chapter{Conclusion and Future Work}
+\section{Observations}
+\par Named Entity Chunker provided in Python's NLTK (\textit{nltk.ne\_chunk}) considers morphology of 
+words while chunking. Make sure that words are not normalized(HMMTagger requires words to 
+be normalized) while chunking.
+\par Trained HMMTagger(for PoS tagging) available in Python's NLTK with \textit{treebank} tagged corpus and
+ tried chunking but performance is not as good as NLTK's Recommended PoS tagger (\textit{nltk.tag}).
+ So, we used NLTK's Recommended PoS tagger for tagging sentences. It was found that NLTK's
+  current recommended tagger is 'Averaged Perceptron Tagger'(It might change over time).
+ 
+\section{Results}
+\par This project is hosted on \texttt{github}\footnote{\url{https://github.com/saikiran638/MyProjects/tree/master/FinalYearProject}}
+, you can access source code and documents of it.
+\par For testing we used \textit{BBC}'s corpus.
 
+\chapter{Conclusion and Future Work}
+\section{Conclusion}
+\par From the text we are going to extract information should a formal writing. For informal
+ writings it won't work well as every steps assumes the formal nature of the text.
+
+\section{Future Work}
+\par Indian languages have very less \textit{tagged} corpus compared to English. We require
+large amount of \textit{tagged corpus} to train classifiers.
+\begin{itemize}
+\item To apply Named Entity Recognition \& Information Extraction for Indian languages.
+\end{itemize}
 
 \begin{thebibliography}{99}
 \bibitem{BookIE}
 \textbf{Extracting Information from Text}\\
 \url{http://www.nltk.org/book/ch07.html}
+
+\bibitem{tag}
+\textbf{Categorizing and Tagging Words}\\
+\url{http://www.nltk.org/book/ch05.html}
 
 \bibitem{howtoRE}
 \textbf{Information Extraction in NLTK}\\
@@ -294,15 +409,24 @@ Prof.Yaser Abu-Mostafa,California Institute of Technology\\
 \textbf{Regular Expression in Python}\\
 \url{https://docs.python.org/2/howto/regex.html#regex-howto}
 
-\bibitem{h}
+\bibitem{hmm}
 Prof. Michael Collins,Columbia University\\
 \textbf{Tagging Problems, and Hidden Markov Models}\\
 \url{http://www.cs.columbia.edu/~mcollins/hmms-spring2013.pdf}
+
+\bibitem{mc}
+Prof. Michael Collins, Columbia University\\
+\textbf{Natural Language Processing}(coursera)\\
+\url{https://class.coursera.org/nlangp-001/lecture}
 
 \bibitem{SNLP}
 \textbf{Dan Jurafsky,Christopher Manning}\\
 Week 4 - Relation Extraction of \textbf{Natural Language Processing}(coursera lectures),\\
 \url{https://class.coursera.org/nlp/lecture}
+\bibitem{Rahul}
+Rahul Sharnagat\\
+\textbf{Named Entity Recognition: A Literature Survery}\\
+\url{http://www.cfilt.iitb.ac.in/resources/surveys/rahul-ner-survey.pdf}
 \end{thebibliography}
 \end{document}
 % bTEzX3BoeXNpY3M6cGFyaW1p
