@@ -6,8 +6,6 @@ from nltk.corpus import ieer
 
 def extract_entities(text):
 	print "called"
-	#for sent in nltk.sent_tokenize(text):
-	#	print nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize(sent)))
 	tree=nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize( nltk.sent_tokenize(text)[24] )))
 	pairs=relextract.tree2semi_rel(tree)
 	for sent,tree in pairs:	
@@ -20,12 +18,6 @@ def extract_entities(text):
 		print(r['subjclass'],':', r['subjtext'])
 		print (r['filler'])
 		print (r['objclass'],':', r['objtext'])
-
-		# The ne_chunk examines the morphology ofa word. Hence in the above sent.lower() [normalized form] wno't work
-			#print type(chunk)
-			#if isinstance(chunk,nltk.tree.Tree):
-			#	print chunk.label(),chunk.leaves()
-
 
 
 def createDoc(text):#To create a DOCUMENT by combining all the chunked sentences.
@@ -74,7 +66,6 @@ def createDoc(text):#To create a DOCUMENT by combining all the chunked sentences
 			#if isinstance(chunk,nltk.tree.Tree):
 			#	print chunk.label(),chunk.leaves()
 data="testcorpuspol.txt"#"testcorpusent.txt"#"testcorpus.txt"
-#extract_entities(codecs.open(data,"r","utf-8").read())
 
 def extractRel(reldicts,subjclass,objclass,window,pattern):
 
@@ -87,31 +78,7 @@ def extractRel(reldicts,subjclass,objclass,window,pattern):
 	
 dicts=createDoc(codecs.open(data,"r","utf-8").read())
 # Match pattern in filler
-roles = """			(.*(
-		analyst|
-		chair(wo)?man|
-		commissioner|
-		counsel|
-		director|
-		economist|
-		editor|
-		executive|
-		foreman|
-		governor|
-		head|
-		lawyer|
-		leader|
-		librarian).*)|
-		manager|
-		partner|
-		president|
-		producer|
-		professor|
-		researcher|
-		spokes(wo)?man|
-		writer|
-		,\sof\sthe?\s* 
-		"""# "X, of (the) Y"
+
 import RelationRules as rr
 ROLES = re.compile(rr.roles, re.VERBOSE)
 IN = re.compile(r'.*\bin\b(?!\b.+ing\b)')
@@ -132,4 +99,3 @@ RELATION=re.compile(rr.relation,re.VERBOSE)
 print "=========== RELATION ============"
 extractRel(dicts,'PERSON','PERSON',window,RELATION)
 
-# (.*(chairman|lawer|doctor))|patient
