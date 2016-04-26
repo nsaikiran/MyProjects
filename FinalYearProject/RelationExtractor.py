@@ -54,9 +54,9 @@ def extractRel(reldicts,subjclass,objclass,window,pattern):
 
 
 
-data = "testdatapolitics.txt"
+#data = "testdatapolitics.txt"
 #data = "testdataentertainment.txt"
-#data = "testdatabusiness.txt"
+data = "testdatabusiness.txt"
 
 dicts=createDoc(codecs.open(data,"r","utf-8").read())
 
@@ -68,6 +68,7 @@ RELATION= re.compile(rr.relation,re.VERBOSE|re.IGNORECASE)
 PERSONPLACE = re.compile(rr.personplace,re.VERBOSE|re.IGNORECASE)
 DISTANCE= re.compile(rr.distance,re.VERBOSE|re.IGNORECASE)
 
+print "FILE:: ",data
 print "====== Relations of PERSON and ORGANIZATION ===="
 extractRel(dicts,'PERSON','ORGANIZATION',window,ROLES)
 print "====== Relations of PERSON and PERSON	======="

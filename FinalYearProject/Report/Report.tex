@@ -44,11 +44,11 @@ in\\
 \textbf {Computer Science and Engineering}\\
 [\baselineskip]
 By\\
-{\Large SAI KIRAN NARAGAM\\N100638\par}
+{\Large NARAGAM SAI KIRAN\\N100638\par}
 \\[\baselineskip] % Tagline(s) or further description
 
 {Under the Guidance of\par}
-{\textbf {Mr. A.Udaya Kumar\\Asst. Professor\\Dept. of Computer Science and Engineering\\  RGUKT Nuzvid}\par}
+{\textbf {Mr. Ambati Udaya Kumar\\Assistant Professor\\Dept. of Computer Science and Engineering\\  RGUKT Nuzvid}\par}
 \vspace*{2\baselineskip} % Whitespace between location/year and editors
 
 
@@ -108,8 +108,8 @@ By\\
 is the bona fied work of \textbf{NARAGAM SAI KIRAN}, ID No: \textbf{N100638}, carried out under my guidance and supervision,
 for the partial fulfillment of the requirements for the award of the degree of Bachelor of Technology in Computer Science and Engineering. 
 
-\Signature{Mr. Ambati Udaya Kumar,}\\Assistant Professor,\\Dept.of CSE.
-
+\Signature{\textbf{Mr. Krishna Kumar Singh}},\\(Head of the Department)\\Assistant Professor,\\Dept.of CSE.
+\Signature{\textbf{Mr. Ambati Udaya Kumar}},\\(Project Supervisor)\\Assistant Professor,\\Dept.of CSE.
 \pagebreak
 \newgeometry{left=3cm,right=3cm,top=5cm}
 \section*{}
@@ -125,11 +125,17 @@ is the bonafide work of \textbf{NARAGAM SAI KIRAN}, ID No: \textbf{N100638} and 
  of it as a study carried out and presented in a manner required for its
   acceptance in the partial fulfillment of the requirement for 
   the award of the degree of Bachelor of Technology for which it has been submitted.
-   This approval does not necessarily endorse or accept every statement made, opinion expressed or conclusion drawn, as a recorded in this thesis.
+   \par This approval does not necessarily endorse or accept every statement made, opinion expressed or conclusion drawn, as a recorded in this thesis.
     It only signifies the acceptance of this thesis for the purpose for which it has been submitted.
 
-\Signature{Mr. Ambati Udaya Kumar,}\\Assistant Professor,\\Dept.of CSE.
-\Signature{Mr. Amit Patel,}\\Lecturer,\\Dept.of CSE.
+
+\newcommand*{\Signatur}[1]{
+	\vspace{2cm}
+    \par\noindent\makebox[5cm]{\hrulefill}
+    \par\noindent\makebox[5cm][l]{#1}
+}
+\Signature{\textbf{Mr. Amit Patel}}\\(Project Examiner)\\Lecturer,\\Dept.of CSE.
+\Signatur{\textbf{Mr. Ambati Udaya Kumar}}\\(Project Supervisor)\\Assistant Professor,\\Dept.of CSE.
 \pagebreak
 
 \newgeometry{left=3cm,right=3cm,top=5cm}
@@ -160,10 +166,25 @@ Palce: \makebox[3cm]{\hrulefill}\\
 
 \newgeometry{margin=2cm}
 \chapter*{Acknowledgements}
-\par I would like to thank my parents,guide and friends
+\par I would like to thank \textbf{Mr. Ambati Udaya Kumar} for his exemplary guidance, monitoring and constant encouragement throughout the course of this thesis.
+	I express my sincere thanks to him for making the resources available at right time and providing valuable insights leading to the successful completion of my project.
+I really enjoyed his \texttt{'visionay'} discussions
+	\par I would like to thank RGUKT Nuzvid Director, faculty and staff for their valuable suggestions and discussions.
+	\par I place a deep sense of gratitude to my family members and my friends who have been constant source of information during the preparation of this project work.
+
+
+\begin{flushright}N. SAI KIRAN\\N100638\end{flushright}
+
+
 \chapter*{Abstract}
 
-\par Abstract goes here.
+\par \textbf{Information Extraction} is the task of extracting structured data out of unstructured
+ data like natural language text as the structured data can be easily processed by a computing
+  machine. So when we have unstructured data, we extract \texttt{relevant} information in structured form
+   like tables and then use some queries to get \texttt{required} information.
+\par Here we are doing Information Extraction, for that we do \texttt{Named Entity Recognition} and
+ \texttt{Extract Relations} between considered named entities. Thus producing structured form of 
+given natural language text. All the source code and documentation are hosted on \texttt{github}\footnote{\url{https://github.com/saikiran638/MyProjects/tree/master/FinalYearProject}}
 
 %table of contents
 \pagestyle{empty} %get rid of header/footer for toc page
@@ -174,45 +195,55 @@ Palce: \makebox[3cm]{\hrulefill}\\
 \setcounter{page}{1} %reset the page counter
 
 \chapter{Introduction}
-When we have large amount of (previous)data we might want to extract some useful information
- out of it, and use it as summary. or we can predict the future events by learning from the
- data at hand.\\
-Most of the time data that is available for use in un-structured form like Natural Language Text
+\par When we have large amount of (previous)data we might want to extract some useful information
+ out of it, and use it as summary or we can predict the future events by learning from the
+ data at hand.
+\par Most of the time data that is available for use in un-structured form like Natural Language Text
 rather than structured form like tables. It is easy to extract required information or 
-answer a question if the data we are working on has structured form.
-
-But it is difficult to handle unstructured data. Because Natural Language Processing(NLP)
+answer a question if the data we are working on has structured form.But it is difficult to handle unstructured data. Because Natural Language Processing(NLP)
 that works on unstructured data is still developing.
-
-The amount of natural language text that is available in electronic 
+\par The amount of natural language text that is available in electronic 
 form is truly staggering, and is increasing every day. 
 However, 
-the complexity of natural language can make it very difficult to access the information in that text\cite{BookIE}.\\
-
+the complexity of natural language can make it very difficult to access the information in that text\cite{BookIE}.
 \par If we instead focus our efforts on a limited set of questions or 
 "entity relations," such as "where are different facilities located,
 " or "who is employed by what company," we can make significant progress.\cite{BookIE}
-
 \par Here we are trying to understand the given text and find the limited relevant parts of it.
- This is what the researchers called as \textbf{Information Extraction}.
+ This is what the researchers called as \textbf{Information Extraction}. There are two
+  subtasks in infomation extraction those are \texttt{Named Entity Recognition} and \texttt{Relation Extraction}. We work on both of them now.
 \section{Aim}
-\par Identifying named entities and working out the relationship between them using hand-written
- rules with regular expressions. For most of the questions often the answers be named entities.
-\begin{figure}[htp]
+\par Our aim is to identify named entities and working out the relationship between them using hand-written
+ rules with regular expressions. We may use this system for question \& answering. For most of the questions often the answers be named entities.
+The below image \ref{IE} will give an intuition of what we are going to do. That is the procedure followed. 
+\par For relevant, meaningful relation detection we use some regular expressions on that tuples.
+To host this project on \texttt{github}\footnote{This project with its source code and documentation available at: \url{https://github.com/saikiran638/MyProjects/tree/master/FinalYearProject}} for ease of access and modification.
+
+\begin{figure}[h]
 \centering
-\includegraphics[height=2in,width=3in]{ie.png}
+\includegraphics[height=3in,width=4in]{ie.png}
 \caption{Simple Pipeline Architecture for an Information Extraction System\cite{BookIE}}
 \label{IE}
 \end{figure}
-
+To use \texttt{BBC} news data for testing purpose .
+\section{Technologies Used}
+Language of choice is Python as it eases development with high-level data structures and modules built-in. Most important modules we used are :
+\begin{itemize}
+\item \texttt{nltk} (Natural Language Tool Kit module)
+\par We used Python's  Natural Language Tool Kit for implementation. It has good documentation and tutorials\footnote{\url{http://www.nltk.org/book}}.
+It allows convenient access\footnote{\url{http://www.nltk.org/howto}} of corpus in different languages, and has many natural language processing
+ methods implemented for better performance. We can use them for better results.
+\item \texttt{re} (Regural Expression module)
+\par Provides convenient methods to write and test regular expressions. We used it to write rules while extracting relations.
+\end{itemize}
 \chapter{Named Entity Recognition}
 \section{Introduction}
-\par \textbf{Named Entity Recognition} is an important sub task of \textit{Information Extraction} 
-,in this we are going to find and classify (into different classes like PERSON,ORGANIZATION and LOCATION etc.).
- concrete names of people,organizations,locations and quantities etc.
+\par \textbf{Named Entity Recognition} is an important sub task of \texttt{Information Extraction} 
+,in this we are going to find and classify (into different classes like PERSON,ORGANIZATION and LOCATION etc.) 
+ the concrete names of people,organizations,locations and quantities etc.
 \par We are interested in \textit{Named} Entity Recognition. Because not all entities are 
 attached with a name (specific).
-\par For the literature survey on named entity recognition, please refer\cite{Rahul}.
+For the literature survey on named entity recognition, please refer\cite{Rahul}.
 \section{Named Entity Recognition as Tagging}
 \par \textit{Bikel et. al}\footnote{\url{http://ilk.uvt.nl/~toine/research/bikel-1999.pdf}} mapped the  Named the Entity Recognition problem very directly into tagging problem. Where
 where they considered all the named entity classes and an extra NOT-A-NAME tag. 
@@ -233,8 +264,8 @@ They used hand-tagged corpus to train their model(Hidden Markov Model\cite{hmm})
  PoS tagging for NER. \par After having natural language senetences with their underlying \textit{
  tag sequences} we group the tags into named entities.
 
-\subsection{PoS Tagging\footnote{For more details:\\Tagging Problems, and Hidden Markov Models of \cite{mc} and POS Tagging of \cite{SNLP}}}
-\par Parts of speech tagging problem is to determine the parts of speech of a particular
+\subsection{PoS Tagging}
+\par Parts of speech tagging\footnote{For more details:\\Tagging Problems, and Hidden Markov Models of \cite{mc} and POS Tagging of \cite{SNLP}} problem is to determine the parts of speech of a particular
 instance of word. The intuition of PoS tagging is presented in below image \ref{pos}\footnote{Slide from
  The Tagging Problem of \cite{mc}}.
 \par Tags may vary depending on corpus we are dealing with. For example, tag set of The Brown Corpus\footnote{\url{https://www.comp.leeds.ac.uk/ccalas/tagsets/brown.html}} and P.O.S tag set of The Penn Treebank\footnote{\url{https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html}}
@@ -242,20 +273,20 @@ To check in NLTK, execute and \textit{nltk.help.brown\_tagset()},\textit{nltk.he
 \par If we want to write a tagger then we need \textit{large amount of labled corpus}\footnote{For more insights of 
 Machine Learning techniques I feel, \cite{Videos} is a good source}. Which in this case
  are Penn Tree Bank tagged corpus or Brown corpus.
-\par For more insights on writing a parts of speech tagger in NLTK, please refer\cite{tag}
+For more insights on writing a parts of speech tagger in NLTK, please refer\cite{tag}
 \par For theoritical understanding of a tagger. We learned how a Hidden Markov Model tagger\cite{hmm}
  works. Here for this problem we used NLTK's default implementation of tagger(\textit{
  nltk.tag()}) as it is recommeneded for better results.
 
 \begin{figure}[htp]
 \centering
-\includegraphics[height=2.5in,width=5in]{postag.png}
+\includegraphics[height=2.5in,width=5.5in]{postag.png}
 \caption{Parts-of-Speech Tagging}
 \label{pos}
 \end{figure}
 
-\subsection{Named Entity Chunking\footnote{For more details: refer \cite{BookIE}}}
-\par After tagging comes the named entity chunking. We'll group the pos tags into named
+\subsection{Named Entity Chunking}
+\par After tagging comes the named entity chunking\footnote{For more details: refer \cite{BookIE}}. We'll group the pos tags into named
  entities (if possible intuit its class). Chunker is also a tagger that is trained on some
   corpus.
 One of the most useful sources of information for NP-chunking(Noun Phrase-chunking) is part-of-speech tags.
@@ -281,19 +312,20 @@ There are many formats to represent Named Entities, those are IB(Every token is 
 \par Using the Named Entities and clever patterns we extract relation. These rules can 
 get high precision as they are specific.
 \par We will focus on the simpler task of extracting \textbf{relation triples}. Relation
-triples are of the form \textit{(Named Entity,Relation,Named Entity)}.
-\par We will use \textit{relextract} module of \textit{Python} for this.
+triples are of the form \texttt{(Named Entity,Relation,Named Entity)}.
+We use patterns to find whether \texttt{Relation} between those \texttt{Named Entities}
+ is meaningful and relavent. Procedure is clearly explaned in \ref{procedure}
+\par We will use \texttt{relextract} module of \texttt{Python's NLTK} for this.
 \par Rule based relation extraction
 We can create new structured knowledge bases by relation extraction
 Questions that are asked in natural language can be converted in to a query to a structured
 knowledge base.\\
 \par So, Here is a question for us. \textit{Which relations should we extract ?} It depends
-on how many classes of entities we are able to extract in \textit{Named Entity Recognition}.
-
+on how many \textbf{classes of entities} we are able to extract in \textit{Named Entity Recognition}.
 But, a set of relations  comes from the \textit{Automated Content Extraction (ACE)} task.
 \begin{figure}[htp]
 \centering
-\includegraphics[height=3in,width=5.2in]{ACE.jpg}
+\includegraphics[height=3in,width=6in]{ACE.jpg}
 \caption{ACE Relation set}
 \label{ACE}
 \end{figure}
@@ -317,7 +349,7 @@ We are using \textit{only} Hand-written patterns to extract relations as it is s
 way. Here we are trying to extract relations between \textit{specific entities}.
 \par We used \textbf{regular expressions } \cite{re} in Python to write patterns to extract relations.
 
-\subsection{Procedure followed}
+\subsection[procedure]{Procedure followed}
 
 \begin{itemize}
 \item First identify the named entities (POS tagging then Chunking).
@@ -374,16 +406,187 @@ be normalized) while chunking.
 \section{Results}
 \par This project is hosted on \texttt{github}\footnote{\url{https://github.com/saikiran638/MyProjects/tree/master/FinalYearProject}}
 , you can access source code and documents of it.
+\par The relation extraction results for \texttt{BBC} \textbf{politics} news:
+\begin{scriptsize}
+\begin{verbatim}
+====== Relations of PERSON and ORGANIZATION ====
+[PERSON: u'Carl/NNP Emmerson/NNP'] , from the [ORGANIZATION: u'Institute/NNP']
+[PERSON: u'David/NNP Redvers/NNP'] , 34 , from [ORGANIZATION: u'Hartpury/NNP']
+[PERSON: u'John/NNP Bourn/NNP'] , head of the [ORGANIZATION: u'NAO/NNP']
+[PERSON: u'Andrew/NNP Hogg/NNP'] , spokesman for the [ORGANIZATION: u'Medical/NNP Foundation/NNP']
+[PERSON: u'Veritas/NNP'] ' deputy leader . [ORGANIZATION: u'UKIP/NNP']
+[PERSON: u'Tony/NNP Beddow/NNP'] , from the [ORGANIZATION: u'Welsh/NNP Institute/NNP']
+[PERSON: u'Ieuan/NNP Wyn/NNP Jones/NNP'] , leader of the [ORGANIZATION: u'Plaid/NNP Cymru/NNP']
+[PERSON: u'Simon/NNP Sweetman/NNP'] , from the [ORGANIZATION: u'Federation/NNP']
+[PERSON: u'Hutu/NNP'] leader . The five-year [ORGANIZATION: u'Department/NNP']
+[PERSON: u'Kayitesi/NNP Blewitt/NNP'] , founder of the [ORGANIZATION: u'Survivors/NNPS Fund/NNP']
+[PERSON: u'Galloway/NNP'] was expelled from the [ORGANIZATION: u'Labour/NNP']
+[PERSON: u'Massoud/NNP Shadjareh/NNP'] , from the [ORGANIZATION: u'Muslim/NNP Safety/NNP Forum/NNP']
+[PERSON: u'Mike/NNP'] Hobday , from the [ORGANIZATION: u'League/NNP Against/NNP Cruel/NNP Sports/NNP']
+[PERSON: u'Neill/NNP'] , editor of union-backed [ORGANIZATION: u'Hazards/NNP']
+[PERSON: u'David/NNP Rose/NNP'] , Chief Executive of [ORGANIZATION: u'Hereford/NNP Hospitals/NNP']
+[PERSON: u'Bob/NNP Neill/NNP'] , leader of the [ORGANIZATION: u'London/NNP Assembly/NNP Conservatives/NNPS']
+[PERSON: u'Winston/NNP Churchill/NNP'] told us - from the [ORGANIZATION: u'Baltic/NNP']
+[PERSON: u'Veritas/NNP'] ' deputy leader . [ORGANIZATION: u'UKIP/NNP']
+[PERSON: u'Veritas/NNP'] ' deputy leader . [ORGANIZATION: u'UKIP/NNP']
+[PERSON: u'Graham/NNP Lane/NNP'] , leader of the [ORGANIZATION: u'Labour/NNP']
+[PERSON: u'Carl/NNP Emmerson/NNP'] , from the [ORGANIZATION: u'Institute/NNP']
+[PERSON: u'Maeve/NNP Sherlock/NNP'] , chief executive of the [ORGANIZATION: u'Refugee/NNP Council/NNP']
+[PERSON: u'Adams/NNP'] , from the [ORGANIZATION: u'UK/NNP']
+[PERSON: u'Anne/NNP Weyman/NNP'] , chief executive of the [ORGANIZATION: u'Family/NNP']
+====== Relations of PERSON and PERSON	=======
+[PERSON: u'Blunkett/NNP'] 's ex-lover 's nanny . [PERSON: u'Sir/NNP']
+[PERSON: u'Pound/NNP'] said his wife [PERSON: u'Maggie/NNP']
+[PERSON: u'Sandra/NNP'] , daughter [PERSON: u'Larissa/NNP']
+====== Relations of PERSON and LOCATION	=======
+[PERSON: u'Neil/NNP Coppendale/NNP'] , from [LOCATION: u'West/NNP Sussex/NNP']
+[PERSON: u'Welsh/NNP'] , was born in [GPE: u'Melbourne/NNP']
+[PERSON: u'Andrew/NNP Elliot/NNP'] , 42 , from [GPE: u'Bromesberrow/NNP']
+[PERSON: u'Richard/NNP Wakeham/NNP'] , 34 , from [GPE: u'York/NNP']
+[PERSON: u'Budget/NNP Chancellor/NNP Gordon/NNP Brown/NNP'] will deliver his [GPE: u'Budget/NNP']
+[PERSON: u'Michael/NNP Ferguson/NNP'] to be released unescorted from [GPE: u'Carstairs/NNP']
+[PERSON: u'Nick/NNP Griffin/NNP'] - who lives near [GPE: u'Welshpool/NNP']
+[PERSON: u'Terry/NNP Griffiths/NNP'] , like Mr Howard from [GPE: u'Llanelli/NNP']
+[PERSON: u'Feroz/NNP Abbasi/NNP'] , from [GPE: u'London/NNP']
+[PERSON: u'Feroz/NNP Abbasi/NNP'] , from [GPE: u'London/NNP']
+[PERSON: u'Tony/NNP Blair/NNP'] seems to have disappeared from [GPE: u'Labour/NNP']
+[PERSON: u'Labour/NNP'] on issues from [GPE: u'Iraq/NNP']
+[PERSON: u'Budget/NNP Chancellor/NNP Gordon/NNP Brown/NNP'] will deliver his [GPE: u'Budget/NNP']
+[PERSON: u'Brown/NNP'] was born in [GPE: u'Glasgow/NNP']
+====== Relations related to DISTANCE	=======
+\end{verbatim}
+\end{scriptsize}
+\par The relation extraction results for \texttt{BBC} \textbf{business} news:
+\begin{scriptsize}
+\begin{verbatim}
+====== Relations of PERSON and ORGANIZATION ====
+[PERSON: u'Yukos/NNP'] ' owner [ORGANIZATION: u'Menatep/NNP Group/NNP']
+[PERSON: u'Paul/NNP Sheard/NNP'] , economist at [ORGANIZATION: u'Lehman/NNP Brothers/NNPS']
+[PERSON: u'Rick/NNP Egelton/NNP'] , deputy chief economist at [ORGANIZATION: u'BMO/NNP']
+[PERSON: u'Sri/NNP Mulyani/NNP Indrawati/NNP'] , State Minister for [ORGANIZATION: u'National/NNP Development/NNP']
+[PERSON: u'David/NNP Naude/NNP'] , economist at [ORGANIZATION: u'Deutsche/NNP Bank/NNP']
+[PERSON: u'Hannes/NNP Wittig/NNP'] , telecoms analyst at [ORGANIZATION: u'Dresdner/NNP Kleinwort/NNP Wasserstein/NNP']
+[PERSON: u'Ed/NNP Silliere/NNP'] , analyst at [ORGANIZATION: u'Energy/NNP Merchant/NNP']
+[PERSON: u'Takashi/NNP Yamanaka/NNP'] , an economist with [ORGANIZATION: u'UFJ/NNP Bank/NNP']
+[PERSON: u'Norbert/NNP Reithofer/NNP'] , a member of the [ORGANIZATION: u'BMW/NNP']
+[PERSON: u'Brad/NNP Wernle/NNP'] , from [ORGANIZATION: u'Automotive/JJ News/NNP Europe/NNP']
+[PERSON: u'Simon/NNP Wheatley/NNP'] , from [ORGANIZATION: u'Goldman/NNP Sachs/NNP']
+[PERSON: u'Bill/NNP Armstrong/NNP'] , a retail analyst at [ORGANIZATION: u'CL/NNP']
+[PERSON: u'Patrick/NNP Juchemich/NNP'] , auto analyst at [ORGANIZATION: u'Sal/NNP Oppenheim/NNP Bank/NNP']
+[PERSON: u'Stuart/NNP Quint/NNP'] , an analyst at [ORGANIZATION: u'Gartmore/NNP']
+[PERSON: u'James/NNP Carrick/NNP'] , an economist with [ORGANIZATION: u'ABN/NNP Amro/NNP']
+[PERSON: u'Michael/NNP Blythe/NNP'] , chief economist at the [ORGANIZATION: u'Commonwealth/NNP Bank/NNP']
+[PERSON: u'Hiromichi/NNP Shirakawa/NNP'] , chief economist at [ORGANIZATION: u'UBS/NNP Securities/NNPS']
+[PERSON: u'Arjan/NNP Sweere/NNP'] , an analyst at [ORGANIZATION: u'Petercam/NNP']
+[PERSON: u'Heronry/NNP Nozaki/NNP'] , an analyst at [ORGANIZATION: u'NikkoCitigroup/NNP']
+[PERSON: u'Michael/NNP Rabb/NNP'] , an analyst with [ORGANIZATION: u'Bank/NNP Sal/NNP Oppenheim/NNP']
+[PERSON: u'Avery/NNP Shenfeld/NNP'] , senior economist at [ORGANIZATION: u'CIBC/NNP World/NNP Markets/NNPS']
+[PERSON: u'James/NNP Tambone/NNP'] , who it says headed [ORGANIZATION: u'CFD/NNP']
+[PERSON: u'Arne/NNP Kristiansen/NNP'] , a spokesman for the [ORGANIZATION: u'Danish/NNP Dairy/NNP Board/NNP']
+[PERSON: u'Richard/NNP Jeffrey/NNP'] , chief economist at [ORGANIZATION: u'Bridgewell/NNP Securities/NNPS']
+[PERSON: u'Libya/NNP'] 's oil minister , told [ORGANIZATION: u'Reuters/NNP']
+[PERSON: u'John/NNP Palmer/NNP'] , political director at the [ORGANIZATION: u'European/JJ Policy/NNP Centre/NNP']
+[PERSON: u'Libya/NNP'] 's oil minister , told [ORGANIZATION: u'Reuters/NNP']
+[PERSON: u'Jonathan/NNP Loynes/NNP'] , chief UK economist at [ORGANIZATION: u'Capital/NNP Economics/NNP']
+[PERSON: u'Lebedev/NNP'] headed the [ORGANIZATION: u'Menatep/NNP']
+[PERSON: u'Paul/NNP Cherney/NNP'] , chief market analyst at [ORGANIZATION: u'Standard/NNP']
+[PERSON: u'Gary/NNP Thayer/NNP'] , an economist at [ORGANIZATION: u'AG/NNP Edwards/NNP']
+[PERSON: u'Robert/NNP Brusca/NNP'] , chief economist at [ORGANIZATION: u'Fact/NNP']
+[PERSON: u'Anais/NNP Faraj/NNP'] , an analyst at [ORGANIZATION: u'Nomura/NNP']
+[PERSON: u'Marc/NNP Touati/NNP'] , an economist at [ORGANIZATION: u'Natexis/NNP Banques/NNP Populaires/NNP']
+[PERSON: u'Helmut/NNP Schneider/NNP'] , director of the [ORGANIZATION: u'Institute/NNP']
+[PERSON: u'Marc/NNP Toutai/NNP'] , an economist at [ORGANIZATION: u'Natexis/NNP Banques/NNP Populaires/NNP']
+[PERSON: u'Nicolas/NNP Claquin/NNP'] , an analyst at [ORGANIZATION: u'CCF/NNP']
+[PERSON: u'David/NNP Graham/NNP'] from the [ORGANIZATION: u'FDA/NNP']
+[PERSON: u'Deutsche/NNP Boerse/NNP'] investors unhappy with its [ORGANIZATION: u'London/NNP Stock/NNP Exchange/NNP']
+[PERSON: u'Paul/NNP Richards/NNP'] , an analyst at [ORGANIZATION: u'Numis/NNP Securities/NNPS']
+[PERSON: u'Wallace/NNP Cheung/NNP'] , an analyst at [ORGANIZATION: u'DBS/NNP Vickers/NNP']
+[PERSON: u'David/NNP Cummings/NNP'] , head of [ORGANIZATION: u'UK/NNP']
+[PERSON: u'John/NNP Reade/NNP'] , an analyst at [ORGANIZATION: u'UBS/NNP']
+[PERSON: u'Digby/NNP Jones/NNP'] , director general of the [ORGANIZATION: u'UK/NNP']
+[PERSON: u'Richard/NNP Moffat/NNP'] , investment director of [ORGANIZATION: u'UK/NNP']
+[PERSON: u'Al/NNP Breach/NNP'] , an economist at [ORGANIZATION: u'UBS/NNP Brunswick/NNP']
+[PERSON: u'David/NNP Cummings/NNP'] , head of [ORGANIZATION: u'UK/NNP']
+[PERSON: u'Brunswick/NNP'] withdrawing from the [ORGANIZATION: u'Glazer/NNP']
+[PERSON: u'Chris/NNP Panayis/NNP'] , managing director of [ORGANIZATION: u'ISP/NNP']
+[PERSON: u'Rick/NNP Egelton/NNP'] , deputy chief economist at [ORGANIZATION: u'BMO/NNP']
+[PERSON: u'Lian/NNP Chia/NNP Liang/NNP'] , economist at [ORGANIZATION: u'JP/NNP Morgan/NNP']
+[PERSON: u'Sureyya/NNP Serdengecti/NNP'] , head of the [ORGANIZATION: u'Turkish/JJ Central/NNP Bank/NNP']
+[PERSON: u'Rick/NNP Mueller/NNP'] , an analyst at [ORGANIZATION: u'Energy/NNP']
+[PERSON: u'Christian/NNP Jasperneite/NNP'] , an economist with [ORGANIZATION: u'MM/NNP Warburg/NNP']
+[PERSON: u'Suhas/NNP Naik/NNP'] , an investment analyst from [ORGANIZATION: u'ING/NNP Mutual/NNP Fund/NNP']
+[PERSON: u'Reza/NNP Moghadam/NNP'] , assistant director of the [ORGANIZATION: u'IMF/NNP']
+[PERSON: u'Michael/NNP Deppler/NNP'] , director of the [ORGANIZATION: u'IMF/NNP']
+[PERSON: u'Axa/NNP'] spokesman , told [ORGANIZATION: u'BBC/NNP News/NNP']
+[PERSON: u'Tim/NNP Congdon/NNP'] , economist at [ORGANIZATION: u'ING/NNP Barings/NNP']
+[PERSON: u'Michael/NNP Moran/NNP'] , analyst at [ORGANIZATION: u'Daiwa/NNP Securities/NNPS']
+[PERSON: u'Kurt/NNP Karl/NNP'] , economist at [ORGANIZATION: u'Swiss/NNP Re/NNP']
+[PERSON: u'Kerry/NNP'] to release supplies from the [ORGANIZATION: u'US/NNP']
+[PERSON: u'Ivo/NNP Geijsen/NNP'] , an analyst with [ORGANIZATION: u'Bank/NNP Oyens/NNP']
+[PERSON: u'Paul/NNP Collison/NNP'] , chief analyst at [ORGANIZATION: u'Brunswick/NNP']
+[PERSON: u'Ronald/NNP Smith/NNP'] , an analyst at [ORGANIZATION: u'Renaissance/NNP Capital/NNP']
+[PERSON: u'Oleg/NNP Maximov/NNP'] , an analyst at [ORGANIZATION: u'Troika/NNP Dialog/NNP']
+[PERSON: u'Miles/NNP Shipside/NNP'] , commercial director at [ORGANIZATION: u'Rightmove/NNP']
+[PERSON: u'Chen/NNP Huiqin/NNP'] , an analyst at [ORGANIZATION: u'Huatai/NNP Securities/NNPS']
+[PERSON: u'Paul/NNP Newsome/NNP'] , an insurance analyst at [ORGANIZATION: u'AG/NNP Edwards/NNP']
+[PERSON: u'Jan/NNP Egeland/NNP'] , head of the [ORGANIZATION: u'UN/NNP']
+[PERSON: u'Card/NNP'] 's creditors have given [ORGANIZATION: u'LG/NNP']
+[PERSON: u'Lynn/NNP Franco/NNP'] , director of the [ORGANIZATION: u'Conference/NNP Board/NNP']
+[PERSON: u'Marc/NNP Gonsalves/NNP'] , an executive at [ORGANIZATION: u'Xstrata/NNP']
+[PERSON: u'Lian/NNP Chia/NNP Liang/NNP'] , economist at [ORGANIZATION: u'JP/NNP Morgan/NNP']
+[PERSON: u'David/NNP Kim/NNP'] , an analyst at [ORGANIZATION: u'Sejong/NNP Securities/NNPS']
+[PERSON: u'Gordon/NNP Lishman/NNP'] , director general of [ORGANIZATION: u'Age/NNP Concern/NNP England/NNP']
+[PERSON: u'Nick/NNP Bubb/NNP'] , an analyst at [ORGANIZATION: u'Evolution/NNP Securities/NNPS']
+[PERSON: u'Blake/NNP'] Lee-Harwood , campaigns director at [ORGANIZATION: u'Greenpeace/NNP']
+[PERSON: u'Ken/NNP Kim/NNP'] , an analyst at [ORGANIZATION: u'Stone/NNP']
+[PERSON: u'David/NNP Berson/NNP'] , chief economist at [ORGANIZATION: u'Fannie/NNP Mae/NNP']
+[PERSON: u'Michael/NNP Moran/NNP'] , analyst at [ORGANIZATION: u'Daiwa/NNP Securities/NNPS']
+[PERSON: u'Kurt/NNP Karl/NNP'] , economist at [ORGANIZATION: u'Swiss/NNP Re/NNP']
+[PERSON: u'Urban/NNP Decay/NNP'] , from [ORGANIZATION: u'LVMH/NNP']
+[PERSON: u'Anthony/NNP Pratt/NNP'] from [ORGANIZATION: u'JD/NNP Power/NNP']
+[PERSON: u'Wangli/NNP'] , a spokesman for the [ORGANIZATION: u'State/NNP Tobacco/NNP Administration/NNP Monopoly/NNP']
+[PERSON: u'Stefan/NNP Schilbe/NNP'] , analyst at [ORGANIZATION: u'HSBC/NNP Trinkaus/NNP']
+[PERSON: u'John/NNP Nettle/NNP'] , a former employee of [ORGANIZATION: u'General/NNP Mills/NNP']
+[PERSON: u'Rolf/NNP Dress/NNP'] , a spokesman for [ORGANIZATION: u'Union/NNP Investment/NNP']
+[PERSON: u'Wang/NNP Yan/NNP'] , an official from the [ORGANIZATION: u'Beijing/NNP Municipal/NNP Commission/NNP']
+[PERSON: u'Ray/NNP Neidl/NNP'] , an analyst at [ORGANIZATION: u'Calyon/NNP Securities/NNPS']
+[PERSON: u'Tim/NNP Congdon/NNP'] , economist at [ORGANIZATION: u'ING/NNP Barings/NNP']
+[PERSON: u'Digby/NNP Jones/NNP'] , director general of the [ORGANIZATION: u'UK/NNP']
+[PERSON: u'Simon/NNP Rubinsohn/NNP'] , chief economist at [ORGANIZATION: u'Gerrard/NNP']
+[PERSON: u'Frank/NNP Brown/NNP'] , global advisory leader at [ORGANIZATION: u'PwC/NNP']
+====== Relations of PERSON and PERSON	=======
+[PERSON: u'Viktor/NNP Pinchuk/NNP'] , son-in-law of former-President [PERSON: u'Leonid/NNP Kuchma/NNP']
+[PERSON: u'Glazer/NNP'] 's two sons , [PERSON: u'Avi/NNP']
+[PERSON: u'Viktor/NNP Pinchuk/NNP'] , son-in-law of former-President [PERSON: u'Kuchma/NNP']
+[PERSON: u'Glazer/NNP'] 's two sons , [PERSON: u'Avi/NNP']
+====== Relations of PERSON and LOCATION	=======
+[PERSON: u'Money/NN'] has moved out from [GPE: u'India/NNP']
+[PERSON: u'Bruce/NNP Misamore/NNP'] lives in [GPE: u'Houston/NNP']
+[PERSON: u'Joshua/NNP Osagie/NNP'] , a cocoa farmer from [GPE: u'Edo/NNP']
+[PERSON: u'Sergei/NNP Bogdanchikov/NNP'] . According to reports from [GPE: u'Russian/JJ']
+[PERSON: u'Alvarez/NNP'] added . Companies from the [GPE: u'United/NNP States/NNPS']
+[PERSON: u'Nanik/NNP Rupani/NNP'] , president of the [GPE: u'Indian/JJ']
+[PERSON: u'Helen/NNP Carroll/NNP'] , from [GPE: u'Portsmouth/NNP']
+[PERSON: u'Sandy/NNP Oatley/NNP'] have both resigned from [GPE: u'Southcorp/NNP']
+[PERSON: u'Mauritius/NNP'] and one from [GPE: u'Malaysia/NNP']
+[PERSON: u'Siena/NNP'] , both from [GPE: u'Italy/NNP']
+====== Relations related to DISTANCE	=======
+\end{verbatim}
+\end{scriptsize}
+
 \par For testing we used \textit{BBC}'s corpus.
 
 \chapter{Conclusion and Future Work}
 \section{Conclusion}
 \par From the text we are going to extract information should a formal writing. For informal
  writings it won't work well as every steps assumes the formal nature of the text.
+ More importantly the total performance directly depends on the \texttt{taggers} we are using
+  for parts of speech tagging and noun phrase chunking.It is better to take taggers those
+   performs well.
 
 \section{Future Work}
 \par Indian languages have very less \textit{tagged} corpus compared to English. We require
-large amount of \textit{tagged corpus} to train classifiers.
+large amount of \textit{tagged corpus} to train taggers.
 \begin{itemize}
 \item To apply Named Entity Recognition \& Information Extraction for Indian languages.
 \end{itemize}
