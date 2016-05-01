@@ -186,7 +186,7 @@ I really enjoyed his \texttt{'visionay'} discussions
 \par To extract information, named entities are recognized and relation between considered named
  entities are extracted.
 Here we recognized four classes of named entities (PERSON, ORGANIZATION,
-Global Position Entity(GPE), LOCATION) and extracted relations using hand-written rules(regular expressions).
+Global Position Entity(GPE), LOCATION) and extracted relations using hand-written rules (with regular expressions).
 We used BBC news dataset\footnote{Click on \texttt{>> Download raw text files} of \texttt{Dataset: BBC} of \url{http://mlg.ucd.ie/datasets/bbc.html}\\Or \url{http://mlg.ucd.ie/files/datasets/bbc-fulltext.zip}} and got good results.
  All the source code and documentation are hosted on github\footnote{\url{https://github.com/saikiran638/MyProjects/tree/master/FinalYearProject}}
 
@@ -242,9 +242,9 @@ It allows convenient access\footnote{\url{http://www.nltk.org/howto}} of corpus 
 \end{itemize}
 \chapter{Named Entity Recognition}
 \section{Introduction}
-\par \textbf{Named Entity Recognition} is an important sub task of \texttt{Information Extraction} 
-,in this we are going to find and classify (into different classes like PERSON,ORGANIZATION and LOCATION etc.) 
- the concrete names of people,organizations,locations and quantities etc.
+\par \textbf{Named Entity Recognition} is an important sub task of Information Extraction, 
+in this we are going to find and classify (into different classes like PERSON,ORGANIZATION and LOCATION etc.) 
+ the concrete names.
 \par We are interested in \textit{Named} Entity Recognition. Because not all entities are 
 attached with a name (specific).
 For the literature survey on named entity recognition, please refer\cite{Rahul}.
@@ -253,13 +253,7 @@ For the literature survey on named entity recognition, please refer\cite{Rahul}.
 Tagging problem is to determine a tag to a particular word in the given text. Tagging problem requires
  a set of tags and considerable amount of tagged corpus with the same set of tags. Bikel et. al considered nearly seven name classes and a  
  NOT-A-NAME tag as set of tags.
-
-\begin{figure}[htp]
-\centering
-\includegraphics[height=2.5in,width=4.5in]{nerastagging.png}
-\caption{NER as tagging}
-\label{NERasT}
-\end{figure}
+ 
 
 \begin{figure}[htp]
 \centering
@@ -269,9 +263,34 @@ Tagging problem is to determine a tag to a particular word in the given text. Ta
 \end{figure}
 
 
-They used hand-tagged corpus to train their model(Hidden Markov Model\cite{hmm}) and some
- word-features to deal with low-frequency words. 
- 
+\begin{figure}[htp]
+\centering
+\includegraphics[height=3.5in,width=6.5in]{nerastagging.png}
+\caption{NER as tagging}
+\label{NERasT2}
+\end{figure}
+
+They have come up with a Hidden Markov Model\cite{hmm} based tagger(which is an example of generative model of learning\footnote{ For clear understanding please refer Abstract and Introduction of \cite{Ng}})
+ to tag the given text with named entity tags. 
+ They used hand-tagged corpus to train their model(Hidden Markov Model) and considered some
+ word-features to deal with low-frequency words. Figure \ref{NERasT} gives an idea of their work, it
+  is the state diagram of the model they proposed. The model assigns a tag(state) to current word, and next word has different probabilities
+   to be assigned with different tags. The next word will be given a tag that has maximum
+    probability to be assigned.
+These probabilities will be the parameters of 
+   the model which are learned\cite{Videos} from the tagged corpus .
+ \par Figure \ref{NERasT2} gives a better intuition of named entity recognition as tagging. According to this example
+   multi-word names can be easily identified and grouped. No entity(NA) tag is equivalent to  NOT-A-NAME tag. 
+\par The major problem with named entity recognition as tagging is that  we need huge 
+ amount of hand-labeled corpus, with named entity classes as labels. This corpus can't be 
+ used for another purpose. But the another approach to NER, which consists of part-of-speech
+  tagging and chunking requires part-of-speech tagged corpus which can used for many other
+   purposes like machine translation.
+\par There are many advanced ways to solve the tagging problem some of them are Maximum
+Entropy Markov Models, Perceptron taggers etc. \\To know about these other methods, please refer \footnote{For more details: Tagging Problems, and Hidden Markov Models of \cite{mc} and POS Tagging of \cite{SNLP}}\\
+\vspace{2in}
+
+\pagebreak
 \section{Named Entity Recognition with PoS tagging \& Chunking}
 \par Now we have lot of part of speech tagged corpora (especially for english) as we can
  use it for machine translataion and many other applications. Here we are going to use 
@@ -279,7 +298,7 @@ They used hand-tagged corpus to train their model(Hidden Markov Model\cite{hmm})
  tag sequences} we group the tags into named entities.
 
 \subsection{PoS Tagging}
-\par Part of speech tagging\footnote{For more details:\\Tagging Problems, and Hidden Markov Models of \cite{mc} and POS Tagging of \cite{SNLP}} problem is to determine the parts of speech of a particular
+\par Part of speech tagging\footnote{For more details: Tagging Problems, and Hidden Markov Models of \cite{mc} and POS Tagging of \cite{SNLP}} problem is to determine the parts of speech of a particular
 instance of word. The intuition of PoS tagging is presented in below image \ref{pos}\footnote{Slide from
  The Tagging Problem of \cite{mc}}.
 \par Tags may vary depending on corpus we are dealing with. For example, tag set of The Brown Corpus\footnote{\url{https://www.comp.leeds.ac.uk/ccalas/tagsets/brown.html}} and P.O.S tag set of The Penn Treebank\footnote{\url{https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html}}.
@@ -294,8 +313,8 @@ For more insights on writing a parts of speech tagger in NLTK, please refer\cite
 
 \begin{figure}[htp]
 \centering
-\includegraphics[height=2.5in,width=5.5in]{postag.png}
-\caption{Parts-of-Speech Tagging}
+\includegraphics[height=3in,width=5.5in]{postag.png}
+\caption{Part-of-Speech Tagging}
 \label{pos}
 \end{figure}
 
@@ -323,35 +342,40 @@ There are many formats to represent Named Entities, those are IB(Every token is 
 
 \chapter{Relation Extraction}
 \par Relation Extraction is an important component of Information Extraction.
-\par Using the Named Entities and clever patterns we extract relation. These rules can 
+Using the Named Entities and clever patterns we extract relation. These rules can 
 get high precision as they are specific.
 \par We will focus on the simpler task of extracting \textbf{relation triples}. Relation
 triples are of the form \texttt{(Named Entity,Relation,Named Entity)}.
 We use patterns to find whether \texttt{Relation} between those \texttt{Named Entities}
  is meaningful and relavent. Procedure is clearly explaned in \ref{proc}
 \par We will use \texttt{relextract} module of \texttt{Python's NLTK} for this.
-\par Rule based relation extraction
-We can create new structured knowledge bases by relation extraction
+ This is rule based relation extraction because we are using hand-written rules.
+We can create new structured knowledge bases by relation extraction.
 Questions that are asked in natural language can be converted in to a query to a structured
-knowledge base.\\
+knowledge base.
 \par So, Here is a question for us. \textit{Which relations should we extract ?} It depends
 on how many \textbf{classes of entities} we are able to extract in \textit{Named Entity Recognition}.
-But, a set of relations  comes from the \textit{Automated Content Extraction (ACE)} task.
+And here we extracted four classes of names. A set of relations  comes from the \textit{Automated Content Extraction (ACE)} task.
+
+
 \begin{figure}[htp]
 \centering
 \includegraphics[height=3in,width=6in]{ACE.jpg}
 \caption{ACE Relation set}
 \label{ACE}
 \end{figure}
-\ref{ACE}\footnote{Slide from: \url{https://class.coursera.org/nlp/lecture/138}}
+
+
+
 \begin{figure}[htp]
 \centering
 \includegraphics[height=1in,width=3in]{rel.png}
 \caption{Relation between PERSON and ORGANIZATION named entity classes}
-\label{IE}
+\label{IE2}
 \end{figure}
-
-Figure \ref{IE}\footnote{\url{https://class.coursera.org/nlp/lecture/139}} gives basic intuition of relation between entities.
+Figure \ref{ACE}\footnote{Slide from: \url{https://class.coursera.org/nlp/lecture/138}}
+ shows ACE relations.
+Figure \ref{IE2}\footnote{\url{https://class.coursera.org/nlp/lecture/139}} gives basic intuition of relation between entities.
 
 \section{How to extract relations ?}
 We can use:
@@ -407,7 +431,7 @@ The rules we wrote for this project can be found here\footnote{\url{https://gith
 \item We don't want to fix the entities for relation extraction.
 \end{itemize}
 
-\chapter{Results and Observations}
+\chapter{Observations and Results}
 \section{Observations}
 \par Named Entity Chunker provided in Python's NLTK (\textit{nltk.ne\_chunk}) considers morphology of 
 words while chunking. Make sure that words are not normalized(HMMTagger requires words to 
@@ -421,10 +445,10 @@ be normalized) while chunking.
 \par This project is hosted on \texttt{github}\footnote{\url{https://github.com/saikiran638/MyProjects/tree/master/FinalYearProject}}
 , you can access source code and documents of it.
 \par We used \texttt{\textit{BBC}'s news data sets}\footnote{Click on \texttt{>> Download raw text files} of \texttt{Dataset: BBC} of \url{http://mlg.ucd.ie/datasets/bbc.html}\\Or \url{http://mlg.ucd.ie/files/datasets/bbc-fulltext.zip}}.
-In this dataset news is classified under business,entertainment,politics,sport and tech.
-Each category contains many individual files. We merged all the files in that category to make
- one file (We merged all individual files under category politics into one file \texttt{testdatabusiness.txt}
-\par The relation extraction results for \texttt{BBC} \textbf{politics} news:
+In this dataset news is classified under business, entertainment, politics, sport and tech.
+Each category contains many individual files. We merged all the files into
+ one file (We merged all individual files under category business into one file \texttt{testdatabusiness.txt} and politics into \texttt{testdatapolitics.txt}, available on github page).
+\par The relation extraction results for \texttt{BBC} \textbf{politics} news(\texttt{testdatapolitics.txt}):
 \begin{scriptsize}
 \begin{verbatim}
 ====== Relations of PERSON and ORGANIZATION ====
@@ -474,7 +498,7 @@ Each category contains many individual files. We merged all the files in that ca
 ====== Relations related to DISTANCE	=======
 \end{verbatim}
 \end{scriptsize}
-\par The relation extraction results for \texttt{BBC} \textbf{business} news:
+\par The relation extraction results for \texttt{BBC} \textbf{business} news (\texttt{testdatabusiness.txt}):
 \begin{scriptsize}
 \begin{verbatim}
 ====== Relations of PERSON and ORGANIZATION ====
@@ -596,17 +620,23 @@ Each category contains many individual files. We merged all the files in that ca
 
 \chapter{Conclusion and Future Work}
 \section{Conclusion}
-\par From the text we are going to extract information should a formal writing. For informal
- writings it won't work well as every steps assumes the formal nature of the text.
- More importantly the total performance directly depends on the \texttt{taggers} we are using
-  for parts of speech tagging and noun phrase chunking.It is better to take taggers those
+\par We extracted named entities and relations associated with them in BBC news data sets.
+
+The data we are going to use should be a formal writing.
+ For informal writings it won't work well as every steps assumes the formal nature
+  of the text.
+ More importantly the total performance this system directly depends on the performance \texttt{taggers}
+  we are using
+  for parts of speech tagging and \texttt{chunkers} noun phrase chunking.It is better to take taggers those
    performs well.
 
+
 \section{Future Work}
-\par Indian languages have very less \textit{tagged} corpus compared to English. We require
+\par Indian languages have very less \textit{tagged} corpus\footnote{2.2 Reading Tagged Corpora of \cite{tag} and \url{http://www.nltk.org/howto/corpus.html}} compared to English. We require
 large amount of \textit{tagged corpus} to train taggers.
 \begin{itemize}
-\item To apply Named Entity Recognition \& Information Extraction for Indian languages.
+\item To recognize named entities in Indian languages
+\item To apply Information Extraction for Indian languages.
 \end{itemize}
 
 \begin{thebibliography}{99}

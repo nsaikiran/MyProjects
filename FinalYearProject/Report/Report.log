@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.26)  1 MAY 2016 13:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.26)  1 MAY 2016 16:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -248,14 +248,7 @@ File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 \f@ncyO@erf=\skip53
 \f@ncyO@olf=\skip54
 \f@ncyO@orf=\skip55
-) (./Report.aux
-
-LaTeX Warning: Label `NERasT' multiply defined.
-
-
-LaTeX Warning: Label `IE' multiply defined.
-
-)
+) (./Report.aux)
 \openout1 = `Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
@@ -273,7 +266,8 @@ LaTeX Font Info:    ... okay on input line 81.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
 LaTeX Font Info:    ... okay on input line 81.
 \AtBeginShipoutBox=\box28
- (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
@@ -619,111 +613,106 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 236.
  [2 <./ie.png>]
 Chapter 2.
-<bikel.png, id=190, 723.70375pt x 405.515pt>
+<bikel.png, id=189, 723.70375pt x 405.515pt>
 File: bikel.png Graphic file (type png)
  <use bikel.png>
-Package pdftex.def Info: bikel.png used on input line 259.
+Package pdftex.def Info: bikel.png used on input line 260.
 (pdftex.def)             Requested size: 361.35405pt x 216.81534pt.
 
-<nerastagging.png, id=191, 840.13875pt x 505.89pt>
+<nerastagging.png, id=190, 840.13875pt x 505.89pt>
 File: nerastagging.png Graphic file (type png)
  <use nerastagging.png>
-Package pdftex.def Info: nerastagging.png used on input line 266.
-(pdftex.def)             Requested size: 325.2171pt x 180.67676pt.
+Package pdftex.def Info: nerastagging.png used on input line 268.
+(pdftex.def)             Requested size: 469.7566pt x 252.94437pt.
 
 [3
 
- <./bikel.png>]
-Overfull \hbox (0.13354pt too wide) in paragraph at lines 274--274
+ <./bikel.png>] [4 <./nerastagging.png>]
+Overfull \hbox (0.13354pt too wide) in paragraph at lines 294--294
 []\OT1/cmr/bx/n/17.28 Named En-tity Recog-ni-tion with PoS tag-ging & Chunk-
  []
 
-<postag.png, id=215, 840.13875pt x 493.845pt>
+<postag.png, id=234, 840.13875pt x 493.845pt>
 File: postag.png Graphic file (type png)
  <use postag.png>
-Package pdftex.def Info: postag.png used on input line 296.
-(pdftex.def)             Requested size: 397.48044pt x 180.67014pt.
- [4 <./nerastagging.png>]
-Overfull \hbox (42.87778pt too wide) in paragraph at lines 307--310
+Package pdftex.def Info: postag.png used on input line 316.
+(pdftex.def)             Requested size: 397.48044pt x 216.80266pt.
+ [5 <./postag.png>]
+Overfull \hbox (42.87778pt too wide) in paragraph at lines 327--330
 []\OT1/cmr/m/n/12 Here for this prob-lem we used NLTK's de-fault im-ple-men-ta-
 tion of named en-tity chun-ker (\OT1/cmr/m/it/12 nltk.ne[]chunk()\OT1/cmr/m/n/1
 2 )
  []
 
-<chunk1.png, id=234, 1982.40625pt x 406.51875pt>
+<chunk1.png, id=248, 1982.40625pt x 406.51875pt>
 File: chunk1.png Graphic file (type png)
  <use chunk1.png>
-Package pdftex.def Info: chunk1.png used on input line 313.
+Package pdftex.def Info: chunk1.png used on input line 333.
 (pdftex.def)             Requested size: 361.32484pt x 72.26457pt.
 
-Overfull \hbox (0.12286pt too wide) in paragraph at lines 320--322
+Overfull \hbox (0.12286pt too wide) in paragraph at lines 340--342
 []\OT1/cmr/m/n/12 Morphology of words to iden-tify Noun Phrases. And to iden-ti
 fy the class of Noun Phrase(Named
  []
 
-[5 <./postag.png> <./chunk1.png>]
+[6 <./chunk1.png>]
 Chapter 3.
-
-Underfull \hbox (badness 10000) in paragraph at lines 332--336
-
- []
-
-<ACE.jpg, id=243, 746.01291pt x 419.63226pt>
+<ACE.jpg, id=258, 746.01291pt x 419.63226pt>
 File: ACE.jpg Graphic file (type jpg)
  <use ACE.jpg>
-Package pdftex.def Info: ACE.jpg used on input line 341.
+Package pdftex.def Info: ACE.jpg used on input line 363.
 (pdftex.def)             Requested size: 433.6212pt x 216.80775pt.
 
-<rel.png, id=247, 894.34125pt x 385.44pt>
+<rel.png, id=259, 894.34125pt x 385.44pt>
 File: rel.png Graphic file (type png)
  <use rel.png>
-Package pdftex.def Info: rel.png used on input line 348.
+Package pdftex.def Info: rel.png used on input line 372.
 (pdftex.def)             Requested size: 216.80243pt x 72.26982pt.
- [6
+ [7
 
  <./ACE.jpg>]
-Underfull \hbox (badness 3260) in paragraph at lines 379--379
+Underfull \hbox (badness 3260) in paragraph at lines 404--404
 []\OT1/cmtt/m/n/12 filler\OT1/cmr/m/n/12 (text be-tween two
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 381--381
+Underfull \hbox (badness 10000) in paragraph at lines 406--406
 []\OT1/cmtt/m/n/12 Root of the Named
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--382
+Underfull \hbox (badness 10000) in paragraph at lines 407--407
 []\OT1/cmtt/m/n/12 Normalized object with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--382
+Underfull \hbox (badness 10000) in paragraph at lines 407--407
 \OT1/cmtt/m/n/12 underscore in palce of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
+Underfull \hbox (badness 10000) in paragraph at lines 410--410
 []\OT1/cmtt/m/n/12 Root of the Named
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--386
+Underfull \hbox (badness 10000) in paragraph at lines 411--411
 []\OT1/cmtt/m/n/12 Normalized subject with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--386
+Underfull \hbox (badness 10000) in paragraph at lines 411--411
 \OT1/cmtt/m/n/12 underscore in palce of
  []
 
 
-Overfull \hbox (14.04488pt too wide) in paragraph at lines 369--393
+Overfull \hbox (14.04488pt too wide) in paragraph at lines 394--418
 \OT1/cmr/m/n/12 Ex: \OT1/cmtt/m/n/12 [(String1,Named Entity1), (String2,Named E
 ntity2) , (String3,Named Entity3)
  []
 
 
-Overfull \hbox (12.18983pt too wide) in paragraph at lines 369--393
+Overfull \hbox (12.18983pt too wide) in paragraph at lines 394--418
 \OT1/cmr/m/n/12 Here \OT1/cmtt/m/n/12 Named Entity1,Named Entity2,Named Entity3
  \OT1/cmr/m/n/12 are tree rep-re-sen-ta-tions of Noun Phrase.
  []
@@ -731,64 +720,48 @@ Overfull \hbox (12.18983pt too wide) in paragraph at lines 369--393
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7 <./rel.png>] [8]
+[8 <./rel.png>] [9]
 Chapter 4.
-
-Overfull \hbox (79.99692pt too wide) in paragraph at lines 422--426
-[]\OT1/cmr/m/n/12 We used \OT1/cmtt/m/it/12 BBC\OT1/cmtt/m/n/12 's news data se
-ts[][][][][]\OT1/cmr/m/n/12 . In this dataset news is clas-si-fied un-der busi-
-ness,entertainment,politics,sport
- []
-
-
-Overfull \hbox (22.6383pt too wide) in paragraph at lines 422--426
-\OT1/cmr/m/n/12 make one file (We merged all in-di-vid-ual files un-der cat-e-g
-ory pol-i-tics into one file \OT1/cmtt/m/n/12 testdatabusiness.txt 
- []
-
-[9
+[10
 
 ]
-Overfull \hbox (1.02321pt too wide) in paragraph at lines 591--591
+Overfull \hbox (1.02321pt too wide) in paragraph at lines 616--616
 []\OT1/cmtt/m/n/8 [PERSON: u'Hannes/NNP Wittig/NNP'] , telecoms analyst at [ORG
 ANIZATION: u'Dresdner/NNP Kleinwort/NNP Wasserstein/NNP'][] 
  []
 
-[10]
-Overfull \hbox (1.02321pt too wide) in paragraph at lines 591--591
+[11]
+Overfull \hbox (1.02321pt too wide) in paragraph at lines 616--616
 []\OT1/cmtt/m/n/8 [PERSON: u'Wangli/NNP'] , a spokesman for the [ORGANIZATION: 
 u'State/NNP Tobacco/NNP Administration/NNP Monopoly/NNP'][] 
  []
 
-[11]
+[12]
 Chapter 5.
-[12
+[13
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 657.
- [13
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 688.
+ [14
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 657.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 688.
  (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 657.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 657.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 688.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 688.
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: E41304A45323BA0250B5F5ACB90E9ED3;1307.
+(rerunfilecheck)             Checksum: A38B4DE7CAFF5BA2BF41AF799749765B;1307.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 657.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 688.
  ) 
 Here is how much of TeX's memory you used:
- 6458 strings out of 495028
- 92370 string characters out of 6181497
- 190135 words of memory out of 5000000
- 9524 multiletter control sequences out of 15000+600000
+ 6464 strings out of 495028
+ 92427 string characters out of 6181497
+ 190288 words of memory out of 5000000
+ 9526 multiletter control sequences out of 15000+600000
  11555 words of font info for 43 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  29i,15n,43p,335b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -804,10 +777,10 @@ msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on Report.pdf (20 pages, 1060457 bytes).
+Output written on Report.pdf (21 pages, 1064591 bytes).
 PDF statistics:
- 386 PDF objects out of 1000 (max. 8388607)
- 339 compressed objects within 4 object streams
- 86 named destinations out of 1000 (max. 500000)
+ 404 PDF objects out of 1000 (max. 8388607)
+ 356 compressed objects within 4 object streams
+ 90 named destinations out of 1000 (max. 500000)
  201 words of extra memory for PDF output out of 10000 (max. 10000000)
 
