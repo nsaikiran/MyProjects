@@ -256,18 +256,17 @@ Tagging problem is to determine a tag to a particular word in the given text. Ta
 
 \begin{figure}[htp]
 \centering
-\includegraphics[height=2.5in,width=4.5in]{nerastagging.png}
-\caption{NER as tagging}
-\label{NERasT}
-\end{figure}
-
-\begin{figure}[htp]
-\centering
 \includegraphics[height=3in,width=5in]{bikel.png}
 \caption{Stage Diagram of NER as Tagging by Bikel et. al}
 \label{NERasT}
 \end{figure}
 
+\begin{figure}[htp]
+\centering
+\includegraphics[height=2.5in,width=4.5in]{nerastagging.png}
+\caption{NER as tagging}
+\label{NERasT}
+\end{figure}
 
 They used hand-tagged corpus to train their model(Hidden Markov Model\cite{hmm}) and some
  word-features to deal with low-frequency words. 
